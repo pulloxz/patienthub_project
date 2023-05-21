@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./navbar.css"
 
 class Navbar extends Component {
   state = {};
@@ -7,7 +8,7 @@ class Navbar extends Component {
     return (
 <nav class="navbar navbar-expand-sm fixed-top navbar-light">
     <div >
-        <h4>Brand</h4>
+        <h4>بيشنت هاب</h4>
     </div>
 </nav>
 
