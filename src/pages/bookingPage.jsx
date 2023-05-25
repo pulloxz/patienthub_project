@@ -1,9 +1,19 @@
-import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import './bookingpage.css';
+
 
 const BookingPage = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
   const handleBackClick = () => {
     // Handle the back button click event
+    //creating the function later
   };
 
   const selectedService = "الخدمة المختارة"; // Has to be replace with the dynamic value from the previous page
@@ -114,11 +124,38 @@ const BookingPage = () => {
           }}
         />
         
+        <div
+        className="calendar-container"
+        style={{
+          position: 'absolute',
+          top: '470px',
+          right: '40px',
+          width: '350px',
+          height: '300px',
+        }}
+      >
+        <DatePicker
+          selected={selectedDate}
+          onChange={handleDateChange}
+          dateFormat="dd MMMM yyyy"
+          dayClassName={(date) => (date.getDay() === 0 || date.getDay() === 6 ? 'weekend' : null)}
+          customInput={<CustomInput />}
+          calendarClassName="custom-calendar"
+        />
+      </div>
+
 
     </div>
+
     </div>
     
   );
 };
+
+const CustomInput = ({ value, onClick }) => (
+  <button className="custom-input" onClick={onClick}>
+    {value || 'Select Date'}
+  </button>
+);
 
 export default BookingPage;

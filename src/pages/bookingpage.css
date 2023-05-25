@@ -1,0 +1,17 @@
+.custom-calendar {
+    background: transparent;
+    color: #4E4766;
+    font-size: 20px;
+  }
+  
+  .weekend {
+    font-weight: bold;
+  }
+  
+  .custom-input {
+    background: transparent;
+    border: none;
+    color: #4E4766;
+    font-size: 20px;
+  }
+  
