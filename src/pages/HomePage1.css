@@ -1,0 +1,35 @@
+
+.t1 {
+  font-size: 30px;
+  font-family: 'Cairo', sans-serif;
+  color: #392a61;
+  margin-left: 40px;
+}
+.t2 {
+  font-family: 'Cairo', sans-serif;
+  color: #392a61;
+  margin-top: 230px;
+  margin-left: 60px;
+}
+.t3 {
+  font-family: 'Cairo', sans-serif;
+  color: #392a61;
+  margin-top: 10px;
+  margin-left: 530px;
+}
+.t4 {
+  margin-top: 80px;
+  background: #392a61;
+  border: 0.2rem solid #615e5e13;
+  color:#e0d9f1;
+  font-size: 1.7rem;
+  margin-left: 250px;
+  height: 70px;
+  width: 160px;
+  font-family: 'Cairo', sans-serif;
+ 
+}
+.t4:hover {
+  background-color:#282c34;
+  color: #b7bac2;
+}
