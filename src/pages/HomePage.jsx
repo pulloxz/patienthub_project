@@ -3,16 +3,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { Component } from 'react';
-import '../App.css';
-// import StoryPage from './story.jsx';
 import './story.css'
+import '../App.css';
+import StoryPage from './story.jsx';
 
 class HomePage extends Component {
   state = {};
 
   render() {
     return (
-      <div className="maincomponent">
+      <div className="maincomponent"
+      style={{
+        overflowY: 'scroll', height: '800px'
+      }}
+      >
         <header>
           {[false].map((expand) => (
             <Navbar key={expand} expand={expand}>
@@ -35,7 +39,7 @@ class HomePage extends Component {
               </Container>
               <div>
                 <h1 className="t2">!لتحصل على أفضل أهتمام لصحة فمك</h1>
-                <h5 className="t3">سبب أخر لأبتسامك</h5>
+                <h5 className="t3">سبب أخر لإبتسامك</h5>
                 <div className="container mt-3">
                   <button type="button" className="t4">أحجز الآن</button>
                 </div>
@@ -44,7 +48,8 @@ class HomePage extends Component {
           ))}
         </header>
 
-        {/* <StoryPage/> */}
+        <StoryPage></StoryPage>
+
       </div>
     );
   }
