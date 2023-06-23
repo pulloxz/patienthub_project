@@ -1,18 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-// import Navbar from './components/navbar';
 import HomePage from './pages/HomePage';
 import './pages/HomePage1.css'
-import storyPage from './pages/story';
+import StoryPage from './pages/story';
+import './pages/story.css'
 
 
 function App() {
   return (
   
-    <div className="App">
+    <div className="App" style={{overflow:'auto'}}>
      
       <HomePage></HomePage>
-      <storyPage></storyPage>
+      <StoryPage/>
     </div>
 
   );

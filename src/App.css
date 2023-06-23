@@ -44,3 +44,14 @@
     transform: rotate(360deg);
   }
 }
+
+/* html, body, #root {
+  height: 100%;
+}
+
+.header-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+ */
+

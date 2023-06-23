@@ -1,0 +1,35 @@
+.about h1{
+  
+    text-align: center ;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    margin-top: 80px;
+    margin-right: 0px;
+    padding-right : 170px;
+    padding-left:300px;
+    padding-top:130px;
+    padding-bottom:80px;
+    font-family: 'Cairo', sans-serif;
+    float:right;
+    
+   
+  }
+  .about p {
+    position:absolute;
+    right: 550px;
+    line-height: 2;
+    margin-top: 10px;
+    font-family:'Cairo', sans-serif ;
+    padding-top : 80px;
+   margin-right:90px;
+    font-size:20px;
+    
+   
+  
+  }
+  .all {
+    margin-top: 30px;
+
+  }
+  
