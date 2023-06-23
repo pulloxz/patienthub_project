@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Navbar from './components/navbar';
+// import Navbar from './components/navbar';
 import HomePage from './pages/HomePage';
 import './pages/HomePage1.css'
+import storyPage from './pages/story';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
      
       <HomePage></HomePage>
-      
+      <storyPage></storyPage>
     </div>
 
   );
