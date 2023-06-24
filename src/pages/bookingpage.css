@@ -109,6 +109,26 @@
   margin-bottom: 5px;
   font-size: 20px;
 }
+.t4 {
+  position: absolute;
+  top: 700px;
+  left: 120px;
+  width: 250px;
+  height: 55px;
+  background: #4E4766;
+  border: 0.2rem solid #615e5e13;
+  border-radius: 5px;
+  color: #e0d9f1;
+  font-size: 1.7rem;
+}
 
+.t4:hover {
+  background-color: #282c34;
+  color: #b7bac2;
+}
 
-
+.booking-confirmation {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
