@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { availableDates } from "./availabledates";
 import './bookingpage.css';
+
 const BookingPage = () => {
   const [selectedDate, setPickedDate] = useState(null);
   // const availableDates = 
@@ -19,6 +20,13 @@ const BookingPage = () => {
   const handleBackClick = () => {
     
   };
+  const availableTimes = ['10:00 AM', '12:00 PM', '3:00 PM', '5:00 PM'];
+  const [selectedTime, setSelectedTime] = useState('');
+
+  const handleTimeClick = (time) => {
+    setSelectedTime(time);
+  };
+
 
   const selectedService = "الخدمة المختارة"; // Replace with the dynamic value from the previous page
   const isDateAvailable = availableDates.includes(selectedDate?.toISOString().substr(0, 10));
@@ -123,7 +131,39 @@ const BookingPage = () => {
             borderTop: '1px solid #4E4766',
           }}
         />
+        
         {isDateAvailable && selectedDate && (
+  <div
+    className="selected-date"
+    style={{
+      position: 'absolute',
+      top: '410px',
+      left: '380px',
+      color: '#4E4766',
+      fontSize: '18px',
+    }}
+  >
+    تاريخ الحجز: {dayjs(selectedDate).format('YYYY-MM-DD')}
+  </div>
+)}
+{isDateAvailable && selectedDate && (
+  <div className="booking-field" style={{  
+    position: 'absolute',
+  top: '430px',
+  left: '380px',
+  marginTop: '10px',
+  color: '#4E4766',
+  fontSize: '18px', }}>
+    <label className="booking-label">وقت الحجز:</label>
+    <div className="selected-time">
+      {selectedTime ? selectedTime : 'Not selected'}
+    </div>
+  </div>
+)}
+
+
+
+        {/* {isDateAvailable && selectedDate && (
           <div
             className="selected-date"
             style={{
@@ -137,7 +177,32 @@ const BookingPage = () => {
                 تاريخ الحجز: {dayjs(selectedDate).format('YYYY-MM-DD')}
 
           </div>
+
         )}
+        <div className="booking-field">
+          <label className="booking-label">وقت الحجز:</label>
+          <div className="selected-time">
+            {selectedTime ? selectedTime : 'Not selected'}
+          </div>
+        </div> */}
+        <div className="available-times">
+        <div className="time-slots">
+          {availableTimes.map((time, index) => (
+            <div
+              key={time}
+              className={`time-slot ${selectedTime === time ? 'selected' : ''}`}
+              style={{
+                top: Math.floor(index / 2) * 50 + 420,
+          left: (index % 2) * 150 + 800,
+              }}
+              onClick={() => handleTimeClick(time)}
+            >
+              {time}
+            </div>
+          ))}
+        </div>
+      </div>
+
 
         <div
           className="calendar-container"
@@ -165,7 +230,9 @@ const BookingPage = () => {
                    />
           </LocalizationProvider>
           {!isDateAvailable && selectedDate && (
-            <div className="error-message" style={{
+            <div className="error-message" style={{ 
+              // marginTop: '10px',
+              //  color: 'red' 
               position:'absolute',
               top:'100%',
               Padding:'10px',
