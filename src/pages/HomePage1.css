@@ -1,18 +1,15 @@
 
 .t1 {
   font-size: 30px;
-  font-family: 'Cairo', sans-serif;
   color: #392a61;
   margin-left: 40px;
 }
 .t2 {
-  font-family: 'Cairo', sans-serif;
   color: #392a61;
   margin-top: 230px;
   margin-left: 60px;
 }
 .t3 {
-  font-family: 'Cairo', sans-serif;
   color: #392a61;
   margin-top: 10px;
   margin-left: 530px;
@@ -28,12 +25,19 @@
   border-radius: 5px;
   color: #e0d9f1;
   font-size: 1.7rem;
-  font-family: 'Cairo', sans-serif;
 }
 
 .t4:hover {
   background-color: #282c34;
   color: #b7bac2;
+}
+.maincomponent {
+  background-image: url('../image/pic1.jpg');
+  position:fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 

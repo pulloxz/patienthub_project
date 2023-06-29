@@ -1,14 +1,9 @@
 .App {
   text-align: center;
-  background-image: url('./image/pic1.jpg');
-  position: fixed;
-  min-width: 100%;
-  min-height:100%;
-  background-size: cover;
-  background-position: center;
+  
   font-family: 'Cairo', sans-serif;
   font-size: 30px;
-  padding: 330;
+    padding: 330;
 }
 .App-logo {
   height: 40vmin;
@@ -44,14 +39,4 @@
     transform: rotate(360deg);
   }
 }
-
-/* html, body, #root {
-  height: 100%;
-}
-
-.header-wrapper {
-  height: 100%;
-  overflow: auto;
-}
- */
 
