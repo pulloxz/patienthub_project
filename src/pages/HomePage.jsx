@@ -10,22 +10,14 @@ import StoryPage from './story';
 import BookingSection from './BookingSection';
 
 class HomePage extends Component {
-  state = {
-    showBookingSection: false,
-  };
-
-  handleBookNow = () => {
-    this.setState({ showBookingSection: true });
-
-    const bookingSection = document.getElementById('bookingSection');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({ behavior: 'smooth' });
+  scrollToBookingSection = () => {
+    const bookingSectionRef = this.bookingSectionRef;
+    if (bookingSectionRef) {
+      bookingSectionRef.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   render() {
-    const { showBookingSection } = this.state;
-
     return (
       <div>
         <div className="maincomponent">
@@ -64,7 +56,7 @@ class HomePage extends Component {
                 left: '-500px',
               }}
             >
-              <button type="button" className="t4" onClick={this.handleBookNow}>
+              <button type="button" className="t4" onClick={this.scrollToBookingSection}>
                 أحجز الآن
               </button>
             </div>
@@ -73,8 +65,8 @@ class HomePage extends Component {
 
         <StoryPage />
 
-        <div id="bookingSection">
-          {showBookingSection && <BookingSection />}
+        <div ref={(ref) => (this.bookingSectionRef = ref)}>
+          <BookingSection />
         </div>
       </div>
     );

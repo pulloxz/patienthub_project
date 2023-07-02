@@ -8,8 +8,9 @@ import dayjs from 'dayjs';
 const validationSchema = Yup.object({
   الاسم: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
   اسم_الاب: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
-  العمر: Yup.number().min(5, 'لا يمكن أن يكون العمر أقل من 5 سنوات').required('العمر مطلوب'),
-  العنوان: Yup.string().required('العنوان مطلوب'),
+  العمر: Yup.string().max(2 , 'لا يمكن ان يكون العمر اكثر من رقمين')
+  .matches(/^\d+$/, 'يجب أن يحتوي العمر على أرقام فقط')
+  .required('العمر مطلوب'),  العنوان: Yup.string().required('العنوان مطلوب'),
   رقم_الهاتف: Yup.string().matches(/^\d+$/, 'يجب أن يحتوي رقم الهاتف على أرقام فقط').required('رقم الهاتف مطلوب'),
 });
 
@@ -178,10 +179,11 @@ const UserInfoConformation = () => {
             <div className="form-group col-md-6">
               <label htmlFor="العمر" style={{ fontSize: 20 }}>العمر</label>
               <Field
-                type="number"
-                name="العمر"
-                className="form-control"
-                required
+                 type="text"
+                 name="العمر"
+                 className="form-control"
+                 required
+                 pattern="[0-9]"
                 
               />
               <ErrorMessage name="العمر" component="div" className="error-message" style={{ fontSize: 20 }} />
