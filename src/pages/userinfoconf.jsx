@@ -5,7 +5,6 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import dayjs from 'dayjs';
-
 const validationSchema = Yup.object({
   الاسم: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
   اسم_الاب: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
@@ -32,11 +31,11 @@ const UserInfoConformation = () => {
 
   
   const handleSubmit = () => {
-    
+   
     setBookingSuccess(true);
     setTimeout(() => {
       navigate('/booking');
-    }, 10000); 
+    }, 6000); 
 
    
   };
@@ -46,7 +45,7 @@ const UserInfoConformation = () => {
   };
 
   return (
-    <div>
+    <div className='page'>
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-left">
@@ -154,6 +153,16 @@ const UserInfoConformation = () => {
  <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
         <Form>
           <div className="form-row">
+          <div className="form-group col-md-6">
+              <label htmlFor="اسم_الاب" style={{ fontSize: 20 }}>اسم الاب</label>
+              <Field
+                type="text"
+                name="اسم_الاب"
+                className="form-control"
+                required
+              />
+              <ErrorMessage name="اسم_الاب" component="div" className="error-message" style={{ fontSize: 20 }} />
+            </div>
             <div className="form-group col-md-6">
               <label htmlFor="الاسم" style={{ fontSize: 20 }}>الاسم</label>
               <Field
@@ -163,16 +172,6 @@ const UserInfoConformation = () => {
                 required
               />
               <ErrorMessage name="الاسم" component="div" className="error-message" style={{ fontSize: 20 }} />
-            </div>
-            <div className="form-group col-md-6">
-              <label htmlFor="اسم_الاب" style={{ fontSize: 20 }}>اسم الاب</label>
-              <Field
-                type="text"
-                name="اسم_الاب"
-                className="form-control"
-                required
-              />
-              <ErrorMessage name="اسم_الاب" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
           <div className="form-row">
@@ -190,11 +189,16 @@ const UserInfoConformation = () => {
             <div className="form-group col-md-6">
               <label htmlFor="العنوان" style={{ fontSize: 20 }}>العنوان</label>
               <Field
-                type="text"
+               as='select'
                 name="العنوان"
                 className="form-control"
-                required
-              />
+                required>
+                  <option value="">اختر العنوان</option>
+    <option value="عنوان 1">الرصافة</option>
+    <option value="عنوان 2">الكرخ</option>
+                </Field>
+             
+              
               <ErrorMessage name="العنوان" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
@@ -206,16 +210,13 @@ const UserInfoConformation = () => {
                 name="رقم_الهاتف"
                 className="form-control"
                 required
-               
               />
               <ErrorMessage name="رقم_الهاتف" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
         </Form>
       </Formik>
-
 )}
-
     </div>
     <button type="submit" className="button" onClick={handleSubmit}>تأكيد</button>
 

@@ -6,19 +6,18 @@ import React, { Component } from 'react';
 import './story.css'
 import '../App.css';
 import './HomePage1.css'
+import './BookingSection'
 import StoryPage from './story.jsx';
+import BookingSection from './BookingSection';
 
 class HomePage extends Component {
   state = {};
 
   render() {
     return (
-      <div className="maincomponent"
-      style={{
-        overflowY: 'scroll', height: '500px'
-      }}
-      >
-        <header>
+      <div>
+        <div className='maincomponent'>
+           <header>
           {[false].map((expand) => (
             <Navbar key={expand} expand={expand}>
               <Container fluid>
@@ -38,18 +37,25 @@ class HomePage extends Component {
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
               </Container>
-              <div>
-                <h1 className="t2">!لتحصل على أفضل أهتمام لصحة فمك</h1>
-                <h5 className="t3">سبب أخر لإبتسامك</h5>
-                <div className="container mt-3">
-                  <button type="button" className="t4">أحجز الآن</button>
-                </div>
-              </div>
             </Navbar>
           ))}
         </header>
-
-        <StoryPage></StoryPage>
+        <div>
+                <h1 className="t2">!لتحصل على أفضل أهتمام لصحة فمك</h1>
+                <h5 className="t3">سبب أخر لإبتسامك</h5>
+                <div className="container mt-3" style={{
+                  position:'relative',
+                  left:'-500px',
+                }}>
+                  <button type="button" className="t4">أحجز الآن</button>
+                </div>
+        </div>
+        </div>
+         
+          <StoryPage></StoryPage>
+          <BookingSection></BookingSection>
+         
+        
 
       </div>
     );

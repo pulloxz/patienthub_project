@@ -1,9 +1,63 @@
 
-   .about h1 {
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about h1 {
+  position: relative;
+  background-color: black;
+  color: aliceblue;
+  width: 650px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0px;
+ 
+  order: 2;
+}
+
+.about p {
+  line-height: 2;
+  font-size: 20px;
+  padding: 20px;
+ margin: 40px;
+  direction: rtl;
+  text-align: right;
+  order: 1; 
+}
+.all{
+  margin-bottom: 60px;
+}
+
+/* .about h1 {
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  margin: 80px auto;
+  padding: 130px 300px 80px;
+}
+
+.about p {
+  text-align: center;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.all {
+  margin-bottom: 50px;
+}
+
+   */
+  
+  /* .about h1 {
     text-align: center;
     background-color: black;
     position: absolute;
-    top:730px;
+    top:660px;
     left:750px;
     color: aliceblue;
     display: flex;
@@ -17,7 +71,7 @@
   justify-content: center;
     text-align: center;
     position: absolute;
-    top:840px;
+    top:760px;
     left:90px;
     line-height: 2;
     font-size: 20px;
@@ -27,6 +81,6 @@
   
   
   .all {
-    margin-top: 400px;
+    margin-top: 0px;
   }
-  
+   */

@@ -5,8 +5,6 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { useNavigate } from "react-router-dom";
-
-
 import './bookingpage.css';
 
 const BookingPage = () => {
@@ -76,7 +74,8 @@ const handleBookingConfirmation = () => {
   const minSelectableDate = currentDate.add(1, 'day').startOf('day'); 
   const isBookingAvailable = isDateAvailable && selectedTime;
 return (
-    <div className="page">
+  <div className="page">
+    <div>
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-left">
@@ -254,10 +253,6 @@ return (
                }}>
              هذا الموعد غير متاح قم بالتأكد من التواريخ المتاحة الاخرى
             </div>
-
-
-
-
           )}
         </div>
         {isBookingAvailable && (
@@ -273,6 +268,8 @@ return (
 
 
     </div>
+  </div>
+    
   );
 };
 
