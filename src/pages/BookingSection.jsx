@@ -34,8 +34,8 @@ function BookingSection() {
     }
     setShowAdditional(!showAdditional);
   };
-  const handleBookNow = () => {
-    navigate('/booking');
+  const handleBookNow = (navigate, selectedService) => {
+    navigate('/booking', { state: { selectedService } });
   };
   return (
     <div className="container">
@@ -47,7 +47,8 @@ function BookingSection() {
             {index > 0 && <hr className="divider" />}
             <div className="booking-item">
               <div className="button-container">
-                <button className="book-now-button" onClick={handleBookNow}>احجز الآن</button>
+                <button className="book-now-button" onClick={() => handleBookNow(navigate , booking)}
+>احجز الآن</button>
               </div>
               <div className="booking-text">{booking}</div>
             </div>

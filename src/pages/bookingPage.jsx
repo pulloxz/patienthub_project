@@ -4,13 +4,14 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
 import './bookingpage.css';
 
 const BookingPage = () => {
   const [selectedDate, setPickedDate] = useState(null);
   const currentDate = dayjs().startOf('day');
   const navigate = useNavigate();
+  const location = useLocation();
   const handleDateChange = (date) => {
     const selectedDayOfWeek = dayjs(date).day();
     const isFridayOrSaturday = selectedDayOfWeek === 5 || selectedDayOfWeek === 6;
@@ -57,7 +58,7 @@ const handleBookingConfirmation = () => {
       navigate('/booking/confirmation',
       {
         state: {
-          selectedService: selectedService,
+          selectedService: location.state?.selectedService,
           selectedDate: selectedDate,
           selectedTime: selectedTime
         }
@@ -69,7 +70,7 @@ const handleBookingConfirmation = () => {
   };
 
 
-  const selectedService = "الخدمة المختارة"; // Replace with the dynamic value from the previous page
+  const selectedService = location.state?.selectedService
   const isDateAvailable = availableDates.includes(selectedDate?.toISOString().substr(0, 10));
   const minSelectableDate = currentDate.add(1, 'day').startOf('day'); 
   const isBookingAvailable = isDateAvailable && selectedTime;

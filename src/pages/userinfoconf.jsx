@@ -34,7 +34,7 @@ const UserInfoConformation = () => {
    
     setBookingSuccess(true);
     setTimeout(() => {
-      navigate('/booking');
+      navigate('/');
     }, 6000); 
 
    
@@ -147,7 +147,7 @@ const UserInfoConformation = () => {
         >
           تم الحجز بنجاح
           <br />
-          جاري اعادة التوجيه إلى صفحة الحجز
+          جاري اعادة التوجيه إلى الصفحة الرئيسية
         </div>
       ) : (
  <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
