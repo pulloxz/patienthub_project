@@ -5,14 +5,17 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import dayjs from 'dayjs';
+import axios from 'axios';
 const validationSchema = Yup.object({
-  الاسم: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
-  اسم_الاب: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
-  العمر: Yup.string().max(2 , 'لا يمكن ان يكون العمر اكثر من رقمين')
+  name: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
+  father_name: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
+  age: Yup.string().max(2 , 'لا يمكن ان يكون العمر اكثر من رقمين')
   .matches(/^\d+$/, 'يجب أن يحتوي العمر على أرقام فقط')
   .required('العمر مطلوب'),  العنوان: Yup.string().required('العنوان مطلوب'),
-  رقم_الهاتف: Yup.string().matches(/^\d+$/, 'يجب أن يحتوي رقم الهاتف على أرقام فقط').required('رقم الهاتف مطلوب'),
-});
+  phone_number: Yup.string()
+    .matches(/^07[0-9]{9}$/, 'يجب أن يكون رقم الهاتف يبدأ بـ 07 ويحتوي على 9 أرقام')
+    .required('رقم الهاتف مطلوب'),
+  });
 
 
 const UserInfoConformation = () => {
@@ -23,22 +26,33 @@ const UserInfoConformation = () => {
   const selectedDate = dayjs(location.state?.selectedDate).format('YYYY-MM-DD');
   const selectedTime = location.state?.selectedTime?.toString();
   const initialValues = {
-    الاسم: '',
-    اسم_الاب: '',
-    العنوان: '',
-    رقم_الهاتف: '',
-    العمر:'',
+    name: '',
+    father_name: '',
+    location: '',
+    phone_number: '',
+    age:'',
   };
 
+  const handleSubmit = (values) => {
+    const data = {
+      name: values.name,
+      father_name: values.father_name,
+      location: values.location,
+      phone_number: values.phone_number,
+      age: values.age,
+    };
   
-  const handleSubmit = () => {
-   
-    setBookingSuccess(true);
-    setTimeout(() => {
-      navigate('/');
-    }, 6000); 
-
-   
+    axios.post('http://localhost:3000/api/Appointment/appointments', data)
+      .then(response => {
+        console.log(response.data);
+        setBookingSuccess(true);
+        setTimeout(() => {
+          navigate('/');
+        }, 6000);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   const handleBackClick = () => {
@@ -155,44 +169,44 @@ const UserInfoConformation = () => {
         <Form>
           <div className="form-row">
           <div className="form-group col-md-6">
-              <label htmlFor="اسم_الاب" style={{ fontSize: 20 }}>اسم الاب</label>
+              <label htmlFor="father_name" style={{ fontSize: 20 }}>اسم الاب</label>
               <Field
                 type="text"
-                name="اسم_الاب"
+                name="father_name"
                 className="form-control"
                 required
               />
               <ErrorMessage name="اسم_الاب" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFor="الاسم" style={{ fontSize: 20 }}>الاسم</label>
+              <label htmlFor="name" style={{ fontSize: 20 }}>الاسم</label>
               <Field
                 type="text"
-                name="الاسم"
+                name="name"
                 className="form-control"
                 required
               />
-              <ErrorMessage name="الاسم" component="div" className="error-message" style={{ fontSize: 20 }} />
+              <ErrorMessage name="name" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label htmlFor="العمر" style={{ fontSize: 20 }}>العمر</label>
+              <label htmlFor="age" style={{ fontSize: 20 }}>العمر</label>
               <Field
                  type="text"
-                 name="العمر"
+                 name="age"
                  className="form-control"
                  required
                  pattern="[0-9]"
                 
               />
-              <ErrorMessage name="العمر" component="div" className="error-message" style={{ fontSize: 20 }} />
+              <ErrorMessage name="age" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
             <div className="form-group col-md-6">
-              <label htmlFor="العنوان" style={{ fontSize: 20 }}>العنوان</label>
+              <label htmlFor="location" style={{ fontSize: 20 }}>العنوان</label>
               <Field
                as='select'
-                name="العنوان"
+                name="location"
                 className="form-control"
                 required>
                   <option value="">اختر العنوان</option>
@@ -201,19 +215,19 @@ const UserInfoConformation = () => {
                 </Field>
              
               
-              <ErrorMessage name="العنوان" component="div" className="error-message" style={{ fontSize: 20 }} />
+              <ErrorMessage name="location" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label htmlFor="رقم_الهاتف" style={{ fontSize: 20 }}>رقم الهاتف</label>
+              <label htmlFor="phone_number" style={{ fontSize: 20 }}>رقم الهاتف</label>
               <Field
                 type="tel"
-                name="رقم_الهاتف"
+                name="phone_number"
                 className="form-control"
                 required
               />
-              <ErrorMessage name="رقم_الهاتف" component="div" className="error-message" style={{ fontSize: 20 }} />
+              <ErrorMessage name="phone_number" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
         </Form>

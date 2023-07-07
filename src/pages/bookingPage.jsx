@@ -246,8 +246,8 @@ return (
           </LocalizationProvider>
           {!isDateAvailable && selectedDate && (
             <div className="error-message" style={{ 
-              position:'absolute',
-              top:'100%',
+              position: 'relative',
+              top:'30%',
               Padding:'10px',
               fontSize:'20px',
               color:'red',             
