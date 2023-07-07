@@ -8,6 +8,7 @@ import './HomePage1.css';
 import './BookingSection';
 import StoryPage from './story';
 import BookingSection from './BookingSection';
+import FinalComponent from '../components/form/components/final_component/final_component';
 
 class HomePage extends Component {
   scrollToBookingSection = () => {
@@ -67,6 +68,9 @@ class HomePage extends Component {
 
         <div ref={(ref) => (this.bookingSectionRef = ref)}>
           <BookingSection />
+        </div>
+        <div>
+          <FinalComponent/>
         </div>
       </div>
 
