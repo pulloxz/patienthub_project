@@ -69,6 +69,8 @@ class HomePage extends Component {
           <BookingSection />
         </div>
       </div>
+
+      
     );
   }
 }
