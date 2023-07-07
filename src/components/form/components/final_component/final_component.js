@@ -1,7 +1,8 @@
 import React from "react";
-import BlackCard from "./components/black_card/BlackCard";
-import WhiteCard from "./components/white_card/WhiteCard";
+import BlackCard from "../black_card/BlackCard";
+import WhiteCard from "../white_card/WhiteCard";
 import "./final_component.css";
+
 
 const FinalComponent = () => {
   return (
