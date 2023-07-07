@@ -1,0 +1,120 @@
+
+.custom-calendar {
+  background: transparent;
+  color: #4E4766;
+  font-size: 20px;
+}
+
+.weekend {
+  font-weight: bold;
+}
+
+.custom-input {
+  background: transparent;
+  border: none;
+  color: #4E4766;
+  font-size: 20px;
+}
+.calendar-container {
+  position: absolute;
+  top: 260px;
+  right: 85px;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.day-name {
+  font-size: 20px;
+  color: #4E4766;
+}
+
+.day-number {
+  font-size: 20px;
+  color: #4E4766;
+}
+.available-times {
+  margin-top: 10px;
+}
+
+.booking-label {
+  display: block;
+  font-size: 18px;
+  color: #4E4766;
+  margin-bottom: 5px;
+}
+
+.time-slots {
+  position: relative;
+}
+
+.time-slot {
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  background-color: #4E4766;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.time-slot.selected {
+  background-color: #ffffff;
+  color: #4E4766;
+  border: 2px solid #4E4766;
+}
+.booking-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+
+
+.selected-time {
+  font-size: 20px;
+  color: #4E4766;
+}
+
+.available-times {
+  margin-top: 10px;
+}
+
+.available-times .booking-label {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.t4 {
+  position: absolute;
+  top: 700px;
+  left: 120px;
+  width: 250px;
+  height: 55px;
+  background: #4E4766;
+  border: 0.2rem solid #615e5e13;
+  border-radius: 5px;
+  color: #e0d9f1;
+  font-size: 1.7rem;
+}
+
+.t4:hover {
+  background-color: #282c34;
+  color: #b7bac2;
+}
+
+.booking-confirmation {
+ position: relative;
+top: 400px;
+right: 550px;
+}

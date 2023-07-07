@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YTNmrTNlBe630QurMyVvCFOQCNA2jXXJWdAiCiakL6c=",
+  "Source": "aspnetapitest",
+  "BasePath": "_content/aspnetapitest",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
