@@ -1,0 +1,59 @@
+.userinfo-confirmation {
+    max-width: 700px;
+    margin: 0 auto;
+    position: absolute;
+    right: 40px;
+    top: 350px;
+  }
+  
+  .form-control {
+    font-size: 20;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #4E4766;
+    background-color: #DDDBE5;
+    color: #4E4766;
+  }
+  
+  .error-message {
+    font-size: 20px;
+    color: red;
+  }
+  
+  .button {
+    margin-top: 20px;
+    position: absolute;
+    left: 100px; /* Adjust as needed to align with the "رجوع" button */
+    top: 550px; /* Adjust as needed to align vertically */
+    width: 250px;
+    height: 55px;
+    background: #4E4766;
+    border: 0.2rem solid #615e5e13;
+    border-radius: 5px;
+    color: #e0d9f1;
+    font-size: 20px;
+}
+.button:hover{
+   
+        background-color: #282c34;
+        color: #b7bac2;
+     
+}
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px; 
+  }
+  
+  .form-row > .form-group {
+    padding-right: 10px;
+    padding-left: 10px;
+    flex: 0 0 50%; 
+  }
+  .success-message{
+    color: green;
+    font-weight: 500;
+  }
+  
+  

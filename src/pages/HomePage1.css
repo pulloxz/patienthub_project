@@ -1,0 +1,46 @@
+
+.t1 {
+  font-size: 30px;
+  color: #392a61;
+  margin-left: 40px;
+}
+.t2 {
+  color: #392a61;
+  margin-top: 230px;
+  margin-left: 60px;
+}
+.t3 {
+  color: #392a61;
+  margin-top: 10px;
+  margin-left: 530px;
+}
+.t4 {
+  position: relative;
+  top: 150px;
+width: 250px;
+  height: 55px;
+  background: #4E4766;
+  border: 0.2rem solid #615e5e13;
+  border-radius: 5px;
+  color: #e0d9f1;
+  font-size: 1.7rem;
+}
+
+.t4:hover {
+  background-color: #282c34;
+  color: #b7bac2;
+}
+.maincomponent {
+  background-image: url('../image/pic1.jpg');
+  min-width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  text-align: left;
+}
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
