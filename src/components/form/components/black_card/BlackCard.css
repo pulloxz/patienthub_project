@@ -1,5 +1,6 @@
 .black-card {
-    position: fixed;
+    
+    position: absolute;
     background-color: black;
     color: white;
     width: 30%;
@@ -9,6 +10,9 @@
     transform: translateY(-50%);
     padding: 20px;
     text-align: center;
+    align-self: flex-end;
+    flex-direction: column;
+    bottom: 0%;
  
 }
 

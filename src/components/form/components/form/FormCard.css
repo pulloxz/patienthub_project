@@ -17,11 +17,17 @@ display: flex;
      color: #4E4766 !important;
      width: 100%;
      height:3vh;
+     display: flex;
  }
 
  .error-message {
-     font-size: 20px !important;
+    height: 40px;
      color: red !important;
+    
+    
+   
+   
+   
  }
 
  .button {
@@ -70,7 +76,7 @@ display: flex;
      font-weight: 500 !important;
  }
  .cv {
-    font-size: 20 !important;
+    font-size: 20px !important;
     border: none !important;
     border-radius: 0 !important;
     border-bottom: 1px solid #4E4766 !important;
@@ -79,4 +85,11 @@ display: flex;
     width: 100%;
     height: 3vh;
     align-items: self-end;
+    
+ }
+ .allform{
+    display: block;
+ }
+ .errorMessage{
+    height: 40px;
  }

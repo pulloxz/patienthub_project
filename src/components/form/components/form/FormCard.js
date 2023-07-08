@@ -16,7 +16,10 @@ const validationSchema = Yup.object({
     .max(dayjs("2006-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
     .required("Birth date is required"),
   رقم_الهاتف: Yup.string()
-    .matches(/^\d+$/, "يجب أن يحتوي رقم الهاتف على أرقام فقط")
+    .matches(
+      /^07[0-9]{9}$/,
+      "يجب أن يكون رقم الهاتف يبدأ بـ 07 ويحتوي على 9 أرقام"
+    )
     .required("رقم الهاتف مطلوب"),
   السيرة_الذاتية: Yup.mixed()
     .test(
@@ -43,16 +46,8 @@ const onSubmit = (values, { resetForm }) => {
 };
 
 const FormCard = () => {
-  // const minDate = dayjs("2006-01-01");
-  // const maxDate = dayjs("1980-01-01");
-  // const validateDate = (value) => {
-  //   const selectedDate = dayjs(value);
-  //   if (selectedDate.isBefore(minDate) || selectedDate.isAfter(maxDate)) {
-  //     return "الرجاء قم بادخال تاريخ اخر ";
-  //   }
-  // };
   return (
-    <div>
+    <div className="allform">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -62,23 +57,26 @@ const FormCard = () => {
           <div className="form-row">
             <div className="problem">
               <label htmlFor="الاسم الاول" className="label">
-                *الاسم الاول
+                *الاسم
               </label>
+
               <Field
                 type="text"
                 name="الاسم"
                 className="form-control"
                 required
               />
-              <ErrorMessage
-                name="الاسم"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="الاسم"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
             <div className="problem">
               <label htmlFor="الاسم الثاني" className="label">
-                *الاسم الثاني
+                *اسم الاب
               </label>
               <Field
                 type="text"
@@ -86,11 +84,13 @@ const FormCard = () => {
                 className="form-control"
                 required
               />
-              <ErrorMessage
-                name="الاب"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="الاب"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
           </div>
           <div className="form-row">
@@ -104,11 +104,13 @@ const FormCard = () => {
                 name="العمر"
                 className="form-control"
               />
-              <ErrorMessage
-                name="العمر"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="العمر"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
             <div className="problem">
               <label htmlFor="الايميل الشخصي" className="label">
@@ -120,16 +122,18 @@ const FormCard = () => {
                 className="form-control"
                 required
               />
-              <ErrorMessage
-                name="الايميل"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="الايميل"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
           </div>
           <div className="form-row">
             <div className="problem">
-              <label htmlFor="الاسم الاول" className="label">
+              <label htmlFor="رقم_الهاتف" className="label">
                 *رقم الهاتف
               </label>
               <Field
@@ -138,11 +142,13 @@ const FormCard = () => {
                 className="form-control"
                 required
               />
-              <ErrorMessage
-                name="رقم_الهاتف"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="رقم_الهاتف"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
             <div className="problem">
               <label htmlFor=" السيرة الذاتية" className="label">
@@ -154,11 +160,13 @@ const FormCard = () => {
                 className="cv"
                 required
               />
-              <ErrorMessage
-                name="السيرة_الذاتية"
-                component="div"
-                className="error-message"
-              />
+              <div className="errorMessage">
+                <ErrorMessage
+                  name="السيرة_الذاتية"
+                  component="div"
+                  className="error-message"
+                />
+              </div>
             </div>
           </div>
         </Form>
