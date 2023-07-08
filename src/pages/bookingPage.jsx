@@ -12,17 +12,26 @@ const BookingPage = () => {
   const currentDate = dayjs().startOf('day');
   const navigate = useNavigate();
   const location = useLocation();
+  
+  
+
   const handleDateChange = (date) => {
+    const dayjs = require('dayjs');
     const selectedDayOfWeek = dayjs(date).day();
     const isFridayOrSaturday = selectedDayOfWeek === 5 || selectedDayOfWeek === 6;
-  
     if (isFridayOrSaturday) {
-      setPickedDate(null);
+      setPickedDate(date.toDate());
       setSelectedTime('');
-      return;
+    } else {
+      setPickedDate(date.toDate());
     }
+    // if (isFridayOrSaturday) {
+    //   setPickedDate(date.toDate());
+    //   setSelectedTime('');
+    //   return;
+    // }
   
-    setPickedDate(date.toDate());
+    // setPickedDate(date.toDate());
   };
 
   const startDate = dayjs('2023-07-01');
@@ -74,6 +83,9 @@ const handleBookingConfirmation = () => {
   const isDateAvailable = availableDates.includes(selectedDate?.toISOString().substr(0, 10));
   const minSelectableDate = currentDate.add(1, 'day').startOf('day'); 
   const isBookingAvailable = isDateAvailable && selectedTime;
+  console.log('isDateAvailable:', isDateAvailable);
+console.log('selectedDate:', selectedDate);
+
 return (
   <div className="page">
     <div>
@@ -244,14 +256,16 @@ return (
            
                    />
           </LocalizationProvider>
-          {!isDateAvailable && selectedDate && (
-            <div className="error-message" style={{ 
-              position: 'relative',
-              top:'30%',
-              Padding:'10px',
-              fontSize:'20px',
+          {!isDateAvailable && selectedDate && (dayjs(selectedDate).day() === 5 || dayjs(selectedDate).day() === 6)&& (
+            <div className="error-message" 
+            style={{ 
+              position: 'absolute',
+              top:'100%',
+              padding:'10px',
+              fontSize:'20',
               color:'red',             
-               }}>
+               }}
+               >
              هذا الموعد غير متاح قم بالتأكد من التواريخ المتاحة الاخرى
             </div>
           )}

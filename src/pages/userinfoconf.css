@@ -8,6 +8,7 @@
   
   .form-control {
     font-size: 20;
+    height: 40px;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid #4E4766;
@@ -23,8 +24,8 @@
   .button {
     margin-top: 20px;
     position: absolute;
-    left: 100px; /* Adjust as needed to align with the "رجوع" button */
-    top: 550px; /* Adjust as needed to align vertically */
+    left: 100px;  
+    top: 550px; 
     width: 250px;
     height: 55px;
     background: #4E4766;
