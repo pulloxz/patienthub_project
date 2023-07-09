@@ -1,5 +1,5 @@
 import React from "react";
-import "./BlackCard.css"; // Import the CSS file for styling
+import "./BlackCard.css"; 
 
 const BlackCard = ({ text,additionalText }) => {
   return (

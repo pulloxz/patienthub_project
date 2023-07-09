@@ -1,27 +1,27 @@
 import "./FormCard.css";
-import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import dayjs from "dayjs";
-import DatePicker from "react-datepicker";
+
+
 const validationSchema = Yup.object({
-  الاسم: Yup.string()
+  name: Yup.string()
     .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
     .required("الاسم مطلوب"),
-  الاب: Yup.string()
+  father_name: Yup.string()
     .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
     .required("الاسم مطلوب"),
-  العمر: Yup.date()
+  age: Yup.date()
     .min(dayjs("1980-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
     .max(dayjs("2006-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
     .required("Birth date is required"),
-  رقم_الهاتف: Yup.string()
+  phone_number: Yup.string()
     .matches(
       /^07[0-9]{9}$/,
       "يجب أن يكون رقم الهاتف يبدأ بـ 07 ويحتوي على 9 أرقام"
     )
     .required("رقم الهاتف مطلوب"),
-  السيرة_الذاتية: Yup.mixed()
+  cv: Yup.mixed()
     .test(
       "fileType",
       "السيرة الذاتية يجب انو تكون بصيغة بي دي اف ",
@@ -30,24 +30,41 @@ const validationSchema = Yup.object({
     .required("السيرة الذاتية مطلوبة"),
   الايميل: Yup.string().email().required("الايميل مطلوب"),
 });
-const initialValues = {
-  الاسم: "",
-  الاب: "",
-  العمر: dayjs().format("YYYY-MM-DD"),
 
-  رقم_الهاتف: "",
-  الايميل: "",
-  السيرة_الذاتية: null,
+const initialValues = {
+  name: "",
+  father_name: "",
+  age: dayjs().format("YYYY-MM-DD"),
+  phone_number: "",
+  email: "",
+  cv: null,
 };
-const onSubmit = (values, { resetForm }) => {
-  // Handle form submission logic here
-  console.log(values);
-  resetForm();
+const onSubmit = async (values, { resetForm }) => {
+  try {
+    const response = await fetch('api/StudentReg/students', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (response.ok) {
+      console.log('Form data submitted successfully!');
+      resetForm();
+    } else {
+      console.log('Failed to submit form data.');
+    }
+  } catch (error) {
+    console.error('Error occurred while submitting form data:', error);
+  }
 };
 
 const FormCard = () => {
+
   return (
     <div className="allform">
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -56,37 +73,37 @@ const FormCard = () => {
         <Form>
           <div className="form-row">
             <div className="problem">
-              <label htmlFor="الاسم الاول" className="label">
+              <label htmlFor="name" className="label">
                 *الاسم
               </label>
 
               <Field
                 type="text"
-                name="الاسم"
+                name="name"
                 className="form-control"
                 required
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="الاسم"
+                  name="name"
                   component="div"
                   className="error-message"
                 />
               </div>
             </div>
             <div className="problem">
-              <label htmlFor="الاسم الثاني" className="label">
+              <label htmlFor="father_name" className="label">
                 *اسم الاب
               </label>
               <Field
                 type="text"
-                name="الاب"
+                name="father_name"
                 className="form-control"
                 required
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="الاب"
+                  name="father_name"
                   component="div"
                   className="error-message"
                 />
@@ -95,36 +112,36 @@ const FormCard = () => {
           </div>
           <div className="form-row">
             <div className="problem">
-              <label htmlFor="تاريخ الولادة" className="label">
+              <label htmlFor="age" className="label">
                 *تاريخ الولادة
               </label>
               <Field
                 type="date"
-                id="العمر"
-                name="العمر"
+                id="age"
+                name="age"
                 className="form-control"
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="العمر"
+                  name="age"
                   component="div"
                   className="error-message"
                 />
               </div>
             </div>
             <div className="problem">
-              <label htmlFor="الايميل الشخصي" className="label">
+              <label htmlFor="emial" className="label">
                 *الايميل الشخصي
               </label>
               <Field
                 type="text"
-                name="الايميل"
+                name="email"
                 className="form-control"
                 required
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="الايميل"
+                  name="email"
                   component="div"
                   className="error-message"
                 />
@@ -133,36 +150,36 @@ const FormCard = () => {
           </div>
           <div className="form-row">
             <div className="problem">
-              <label htmlFor="رقم_الهاتف" className="label">
+              <label htmlFor="phone_number" className="label">
                 *رقم الهاتف
               </label>
               <Field
                 type="text"
-                name="رقم_الهاتف"
+                name="phone_number"
                 className="form-control"
                 required
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="رقم_الهاتف"
+                  name="phone_number"
                   component="div"
                   className="error-message"
                 />
               </div>
             </div>
             <div className="problem">
-              <label htmlFor=" السيرة الذاتية" className="label">
+              <label htmlFor="cv" className="label">
                 *السيرة الذاتية
               </label>
               <Field
                 type="file"
-                name="السيرة_الذاتية"
+                name="cv"
                 className="cv"
                 required
               />
               <div className="errorMessage">
                 <ErrorMessage
-                  name="السيرة_الذاتية"
+                  name="cv"
                   component="div"
                   className="error-message"
                 />
