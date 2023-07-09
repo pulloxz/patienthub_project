@@ -9,9 +9,12 @@ import axios from 'axios';
 const validationSchema = Yup.object({
   name: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
   father_name: Yup.string().min(2, 'الاسم يجب ان يتكون من حرفين على الاقل').required('الاسم مطلوب'),
-  age: Yup.string().max(2 , 'لا يمكن ان يكون العمر اكثر من رقمين')
-  .matches(/^\d+$/, 'يجب أن يحتوي العمر على أرقام فقط')
-  .required('العمر مطلوب'),  العنوان: Yup.string().required('العنوان مطلوب'),
+  age: Yup.number()
+  .positive('العمر يجب أن يكون رقمًا موجبًا')
+  .integer('العمر يجب أن يكون رقمًا صحيحًا')
+  .min(2, 'العمر يجب أن يحتوي على رقمين على الأقل')
+  .required('العمر مطلوب'),
+   العنوان: Yup.string().required('العنوان مطلوب'),
   phone_number: Yup.string()
     .matches(/^07[0-9]{9}$/, 'يجب أن يكون رقم الهاتف مبدوء بـ 07 ويحتوي على 11 رقم')
     .required('رقم الهاتف مطلوب'),
@@ -42,7 +45,7 @@ const UserInfoConformation = () => {
       age: values.age,
     };
   
-    axios.post('http://localhost:3000/api/Appointment/appointments', data)
+    axios.post('http://localhost:3001/api/Appointment/appointments', data)
       .then(response => {
         console.log(response.data);
         setBookingSuccess(true);
@@ -169,16 +172,6 @@ const UserInfoConformation = () => {
         <Form>
           <div className="form-row">
           <div className="form-group col-md-6">
-              <label htmlFor="father_name" style={{ fontSize: 20 }}>اسم الاب</label>
-              <Field
-                type="text"
-                name="father_name"
-                className="form-control"
-                required
-              />
-              <ErrorMessage name="اسم_الاب" component="div" className="error-message" style={{ fontSize: 20 }} />
-            </div>
-            <div className="form-group col-md-6">
               <label htmlFor="name" style={{ fontSize: 20 }}>الاسم</label>
               <Field
                 type="text"
@@ -188,12 +181,22 @@ const UserInfoConformation = () => {
               />
               <ErrorMessage name="name" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
+            <div className="form-group col-md-6">
+              <label htmlFor="father_name" style={{ fontSize: 20 }}>اسم الاب</label>
+              <Field
+                type="text"
+                name="father_name"
+                className="form-control"
+                required
+              />
+              <ErrorMessage name="father_name" component="div" className="error-message" style={{ fontSize: 20 }} />
+            </div>
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label htmlFor="age" style={{ fontSize: 20 }}>العمر</label>
               <Field
-                 type="text"
+                 type="number"
                  name="age"
                  className="form-control"
                  required
@@ -230,13 +233,17 @@ const UserInfoConformation = () => {
               <ErrorMessage name="phone_number" component="div" className="error-message" style={{ fontSize: 20 }} />
             </div>
           </div>
+          <div>
+          <button type="submit" className="button" onClick={handleSubmit}>تأكيد</button>
+          </div>
         </Form>
       </Formik>
 )}
     </div>
-    <button type="submit" className="button" onClick={handleSubmit}>تأكيد</button>
+    {/* <button type="submit" className="button" onClick={handleSubmit}>تأكيد</button> */}
 
     </div>
+    
   );
 };
 
