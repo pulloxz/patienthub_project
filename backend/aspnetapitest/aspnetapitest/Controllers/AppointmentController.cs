@@ -35,7 +35,8 @@ namespace aspnetapitest.Controllers
                 AppointmentId = appointmentId,
                // AppointmentTime = appointmentDTO.AppointmentTime,
                 AppointmentDate = appointmentDTO.AppointmentDate,
-                PatientName = appointmentDTO.PatientName,
+                PatientFirstName = appointmentDTO.PatientFirstName,
+                PatientLastName = appointmentDTO.PatientLastName,
                 PatientPhoneNumber = appointmentDTO.PatientPhoneNumber,
                 TaskId = appointmentDTO.Task,
                 StudentId = student.StudentId

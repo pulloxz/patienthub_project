@@ -38,7 +38,7 @@ namespace aspnetapitest.Controllers
                 student.CVFileName = cvFileName;
             }
             _studentRepository.Addstudent(student);
-            return Ok("all good daddy");
+            return Ok("student sucssesfuly created");
         }
     }
 }

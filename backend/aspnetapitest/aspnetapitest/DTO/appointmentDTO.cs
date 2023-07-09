@@ -5,7 +5,8 @@ namespace aspnetapitest.DTO
     public class appointmentDTO
     {
         [Required]
-        public string? PatientName { get; set; }
+        public string? PatientFirstName { get; set; }
+        public string PatientLastName { get; set; } = null!;
 
         [Required]
         public string? PatientPhoneNumber { get; set; }

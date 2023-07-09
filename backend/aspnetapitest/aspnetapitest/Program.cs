@@ -2,6 +2,10 @@ using aspnetapitest.Interfaces;
 using aspnetapitest.repository;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowspecificOrigin = "_myAllowSpecificOrigin"; 
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +20,16 @@ builder.Services.AddDbContext<AppDatabaseContaxt>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors(opsions =>
+{
+    opsions.AddPolicy(name: MyAllowspecificOrigin,
+                        policy =>
+                        {
+                            policy.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                        });
+});
 
 var app = builder.Build();
 
@@ -25,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(MyAllowspecificOrigin);
 
 app.UseHttpsRedirection();
 

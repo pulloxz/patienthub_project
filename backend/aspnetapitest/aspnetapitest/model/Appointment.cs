@@ -9,7 +9,9 @@ namespace aspnetapitest.model
             public string AppointmentId { get; set; }
 
             [Required]
-            public string? PatientName { get; set; }
+            public string? PatientFirstName { get; set; }
+            [Required]
+            public string? PatientLastName { get; set; }
 
             [Required]
             public string? PatientPhoneNumber { get; set; }
