@@ -41,7 +41,7 @@ const initialValues = {
 };
 const onSubmit = async (values, { resetForm }) => {
   try {
-    const response = await fetch('api/StudentReg/students', {
+    const response = await fetch('http://localhost:3000/api/StudentReg/students', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
