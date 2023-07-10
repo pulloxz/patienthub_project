@@ -2,6 +2,7 @@ import "./FormCard.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import dayjs from "dayjs";
+import axios from "axios";
 
 
 const validationSchema = Yup.object({
@@ -29,6 +30,8 @@ const validationSchema = Yup.object({
     )
     .required("السيرة الذاتية مطلوبة"),
   الايميل: Yup.string().email().required("الايميل مطلوب"),
+  taskid:Yup.string().required('الاختيار مطلوب')
+
 });
 
 const initialValues = {
@@ -38,26 +41,28 @@ const initialValues = {
   phone_number: "",
   email: "",
   cv: null,
+  taskid:""
 };
-const onSubmit = async (values, { resetForm }) => {
-  try {
-    const response = await fetch('http://localhost:3001/api/StudentReg/students', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    });
+const onSubmit = (values, { resetForm }) => {
+  const data = {
+    name: values.name,
+    father_name: values.father_name,
+    age: values.age,
+    phone_number: values.phone_number,
+    email: values.email,
+    cv: values.cv,
+    taskid: values.taskid,
+  };
 
-    if (response.ok) {
-      console.log('Form data submitted successfully!');
+  axios
+    .post('http://localhost:3001/api/StudentReg/students', data)
+    .then(response => {
+      console.log(response.data);
       resetForm();
-    } else {
-      console.log('Failed to submit form data.');
-    }
-  } catch (error) {
-    console.error('Error occurred while submitting form data:', error);
-  }
+    })
+    .catch(error => {
+      console.error(error);
+    });
 };
 
 const FormCard = () => {
@@ -185,6 +190,26 @@ const FormCard = () => {
                 />
               </div>
             </div>
+          </div>
+          <div className="form-row">
+          <div className="problem">
+              <label htmlFor="taskid" className="label"style={{ fontSize: 20 }}>الحالة المطلوبة</label>
+              <Field
+               as='select'
+                name="taskid"
+                className="form-control"
+                required>
+                  <option value="">اختر </option>
+    <option value=" 1">حشوة اسنان</option>
+    <option value=" 2">قلع</option>
+    <option value=" 3">تنظيف</option>
+
+                </Field>
+             
+              
+              <ErrorMessage name="taskid" component="div" className="error-message" style={{ fontSize: 20 }} />
+            </div>
+
           </div>
         </Form>
       </Formik>

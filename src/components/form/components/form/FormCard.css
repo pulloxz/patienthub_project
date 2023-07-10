@@ -3,7 +3,7 @@
 display: flex;
     flex-direction: column;
     width:25%;
-    margin: 5%;
+    margin: 2%;
     align-self: self-end;
   
     
@@ -31,10 +31,10 @@ display: flex;
  }
 
  .button {
-     margin-top: 20px !important;
+     margin-top: 10px !important;
      position: relative !important;
      left: -200px !important;
-     top: 0px !important;
+     top: -20px !important;
      width: 250px !important;
      height: 50px !important ;
      background: #4E4766 !important;
