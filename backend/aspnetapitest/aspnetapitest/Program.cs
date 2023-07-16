@@ -2,8 +2,6 @@ using aspnetapitest.Interfaces;
 using aspnetapitest.repository;
 using Microsoft.EntityFrameworkCore;
 
-var MyAllowspecificOrigin = "_myAllowSpecificOrigin"; 
-
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(MyAllowspecificOrigin);
+app.UseCors();
 
 app.UseHttpsRedirection();
 

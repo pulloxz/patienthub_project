@@ -5,7 +5,7 @@ namespace aspnetapitest.Interfaces
     public interface IStudentRepository
     {
         void Addstudent (Student student);
-        Student GetByTaskId (int? TaskId);
+        Student GetByTaskId (string? TaskId);
 
     }
 }

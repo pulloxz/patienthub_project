@@ -12,7 +12,7 @@ namespace aspnetapitest.repository
 
             _dbContaxt = dbContaxt;
         }
-        public Student GetByTaskId(int? taskId)
+        public Student GetByTaskId(String? taskId)
         {
             return _dbContaxt.Students.FirstOrDefault(s => s.TaskId == taskId);
         }

@@ -33,11 +33,12 @@ namespace aspnetapitest.Controllers
             var appointment = new Appointment
             {
                 AppointmentId = appointmentId,
-               // AppointmentTime = appointmentDTO.AppointmentTime,
-                AppointmentDate = appointmentDTO.AppointmentDate,
                 PatientFirstName = appointmentDTO.PatientFirstName,
                 PatientLastName = appointmentDTO.PatientLastName,
+                age = appointmentDTO.age,
+                location = appointmentDTO.location,
                 PatientPhoneNumber = appointmentDTO.PatientPhoneNumber,
+                AppointmentDate = appointmentDTO.AppointmentDate,
                 TaskId = appointmentDTO.Task,
                 StudentId = student.StudentId
             };

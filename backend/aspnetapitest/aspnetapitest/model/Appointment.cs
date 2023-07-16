@@ -6,25 +6,21 @@ namespace aspnetapitest.model
         public class Appointment
         {
             [Key]
-            public string AppointmentId { get; set; }
+           public string AppointmentId { get; set; } = null!;
 
-            [Required]
-            public string? PatientFirstName { get; set; }
-            [Required]
-            public string? PatientLastName { get; set; }
+            
+            public string PatientFirstName { get; set; } = null!;
+           
+            public string PatientLastName { get; set; } = null!;
 
-            [Required]
-            public string? PatientPhoneNumber { get; set; }
+            public int age { get; set; }
+            public string location { get; set; } = null!;
 
-            [Required]
-            public DateTime? AppointmentDate { get; set; }
+            public string PatientPhoneNumber { get; set; } = null!;
 
-            //[Required]
-            //public TimeSpan? AppointmentTime { get; set; }
+            public string AppointmentDate { get; set; } = null!;
 
-            [Required]
-
-            public int? TaskId { get; set; }
+            public string TaskId { get; set; } = null!;
 
             [ForeignKey("Student")]
             public string StudentId { get; set; }

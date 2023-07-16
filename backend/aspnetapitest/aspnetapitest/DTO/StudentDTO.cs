@@ -4,19 +4,16 @@ namespace aspnetapitest.DTO
 {
     public class StudentDTO
     {
-        [Required]
-   
-            public string? FirstName { get; set; }
-        [Required]
-            public string? LastName { get; set; }
-        [Required]
-            public DateTime? BirthDate { get; set; }
-        [Required]
-            public string? Email { get; set; }
-        [Required]
-            public string? PhoneNumber { get; set; }
-        [Required]
-        public int? Task { get; set; }
+        public string FirstName { get; set; } = null!;
+        
+        public string LastName { get; set; } = null!;
+        
+        public DateTime BirthDate { get; set; } 
+        
+        public string Email { get; set; } = null!;
+        
+        public string PhoneNumber { get; set; } = null!;
+        public string Task { get; set; } = null!;
             // Include only the properties you want to expose to the user
 
     }

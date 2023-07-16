@@ -6,28 +6,27 @@ namespace aspnetapitest.model
 {
     public class Student
     { //edit done 
-        [Required]
-        public string? StudentId { get; set; }
+       public string StudentId { get; set; }
 
-        [Required]
-        public string? StudentFirstName { get; set; }
+        
+        public string StudentFirstName { get; set; }
 
-        [Required]
-        public string? StudentLastName { get; set; }
+        
+        public string StudentLastName { get; set; }
 
-        [Required]
-        public DateTime? StudentBirthDate { get; set; }
+        
+        public DateTime StudentBirthDate { get; set; }
 
-        [Required]
-        public string? StudentEmail { get; set; }
+        
+        public string StudentEmail { get; set; }
 
-        [Required]
-        public string? StudentPhoneNumber { get; set; }
+        
+        public string StudentPhoneNumber { get; set; }
 
-        [Required]
-        public string? CVFileName { get; set; }
-        [Required]
-        public int? TaskId { get; set; }
+        
+        public string CVFileName { get; set; }
+       
+        public string TaskId { get; set; }
 
     }
 }
