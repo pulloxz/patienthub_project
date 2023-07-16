@@ -1,453 +1,172 @@
-import "./FormCard.css";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import { useState } from "react";
 import dayjs from "dayjs";
 import axios from "axios";
 
-const validationSchema = Yup.object({
-  name: Yup.string()
-    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-    .required("الاسم مطلوب"),
-  father_name: Yup.string()
-    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-    .required("الاسم مطلوب"),
-  age: Yup.date()
-    .min(dayjs("1980-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
-    .max(dayjs("2006-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
-    .required("Birth date is required"),
-  phone_number: Yup.string()
-    .matches(
-      /^07[0-9]{9}$/,
-      "يجب أن يكون رقم الهاتف يبدأ بـ 07 ويحتوي على 9 أرقام"
-    )
-    .required("رقم الهاتف مطلوب"),
-  cv: Yup.mixed() // Check if the file type is PDF
-  .required('السيرة الذاتية مطلوبة'),
-  الايميل: Yup.string().email().required("الايميل مطلوب"),
-  taskid: Yup.string().required("الاختيار مطلوب"),
-});
+const FormCard = () => {
+  const [values, setValues] = useState({
+    name: "",
+    father_name: "",
+    age: dayjs().format("YYYY-MM-DD"),
+    phone_number: "",
+    email: "",
+    cv: null,
+    taskid: "",
+  });
 
-const initialValues = {
-  name: "",
-  father_name: "",
-  age: dayjs().format("YYYY-MM-DD"),
-  phone_number: "",
-  email: "",
-  cv: "",
-  taskid: "",
-};
-
-const onSubmit = (values, { resetForm }) => {
-  const data = {
-    FirstName: values.name,
-    LastName: values.father_name,
-    Email: values.email,
-    BirthDate: values.age,
-    PhoneNumber: values.phone_number,
-    Task: values.taskid,
-    cvFile: values.cv, // Ensure the property name matches the one used in the ASP.NET API
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setValues((prevValues) => ({
+      ...prevValues,
+      cv: file,
+    })); 
+  };
+  const formData = new FormData();
+    formData.append("FirstName", values.name);
+    formData.append("LastName", values.father_name);
+    formData.append("Email", values.email);
+    formData.append("BirthDate", values.age);
+    formData.append("PhoneNumber", values.phone_number);
+    formData.append("Task", values.taskid);
+    formData.append("cvFile", values.cv);
+  console.log(formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://localhost:3001/api/StudentReg/students", formData)
+      .then((res) => {
+        console.log(res?.data);
+        // Reset form values
+       
+      })
+     
   };
 
-  axios
-    .post("http://localhost:3001/api/StudentReg/students", data)
-    .then((response) => {
-      console.log(response.data);
-      resetForm();
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
-
-const FormCard = () => {
   return (
     <div className="allform">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        {({ values, handleChange }) => (
-          <Form>
-            <div className="form-row">
-              <div className="problem">
-                <label htmlFor="name" className="label">
-                  *الاسم
-                </label>
-                <Field
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="form-control"
-                  required
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-              <div className="problem">
-                <label htmlFor="father_name" className="label">
-                  *اسم الاب
-                </label>
-                <Field
-                  type="text"
-                  id="father_name"
-                  name="father_name"
-                  className="form-control"
-                  required
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="father_name"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="problem">
-                <label htmlFor="age" className="label">
-                  *تاريخ الولادة
-                </label>
-                <Field
-                  type="date"
-                  id="age"
-                  name="age"
-                  className="form-control"
-                  value={values.age}
-                  onChange={handleChange}
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="age"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-              <div className="problem">
-                <label htmlFor="email" className="label">
-                  *الايميل الشخصي
-                </label>
-                <Field
-                  type="text"
-                  id="email"
-                  name="email"
-                  className="form-control"
-                  required
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="problem">
-                <label htmlFor="phone_number" className="label">
-                  *رقم الهاتف
-                </label>
-                <Field
-                  type="text"
-                  id="phone_number"
-                  name="phone_number"
-                  className="form-control"
-                  required
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="phone_number"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-              <div className="problem">
-                <label htmlFor="cv" className="label">
-                  *السيرة الذاتية
-                </label>
-                <Field
-                  type="file"
-                  id="cv"
-                  name="cv"
-                  className="cv"
-                  required
-                />
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="cv"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="problem">
-                <label htmlFor="taskid" className="label">
-                  الحالة المطلوبة
-                </label>
-                <Field
-                  as="select"
-                  id="taskid"
-                  name="taskid"
-                  className="form-control"
-                  required
-                >
-                  <option value="">اختر</option>
-                  <option value="1">حشوة اسنان</option>
-                  <option value="2">قلع</option>
-                  <option value="3">تنظيف</option>
-                </Field>
-                <div className="errorMessage">
-                  <ErrorMessage
-                    name="taskid"
-                    component="div"
-                    className="error-message"
-                  />
-                </div>
-              </div>
-            </div>
+      <form onSubmit={handleSubmit}>
+        <div className="form-row">
+          <div className="problem">
+            <label htmlFor="name" className="label">
+              *الاسم
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="problem">
+            <label htmlFor="father_name" className="label">
+              *اسم الاب
+            </label>
+            <input
+              type="text"
+              id="father_name"
+              name="father_name"
+              value={values.father_name}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="problem">
+            <label htmlFor="age" className="label">
+              *تاريخ الولادة
+            </label>
+            <input
+              type="date"
+              id="age"
+              name="age"
+              value={values.age}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="problem">
+            <label htmlFor="email" className="label">
+              *الايميل الشخصي
+            </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="problem">
+            <label htmlFor="phone_number" className="label">
+              *رقم الهاتف
+            </label>
+            <input
+              type="text"
+              id="phone_number"
+              name="phone_number"
+              value={values.phone_number}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="problem">
+            <label htmlFor="cv" className="label">
+              *السيرة الذاتية
+            </label>
+            <input
+              type="file"
+              id="cv"
+              name="cv"
+              onChange={handleFileChange}
+              className="cv"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="problem">
+            <label htmlFor="taskid" className="label">
+              الحالة المطلوبة
+            </label>
+            <select
+              id="taskid"
+              name="taskid"
+              value={values.taskid}
+              onChange={handleChange}
+              className="form-control"
+              required
+            >
+              <option value="">اختر</option>
+              <option value="1">حشوة اسنان</option>
+              <option value="2">قلع</option>
+              <option value="3">تنظيف</option>
+            </select>
+          </div>
+        </div>
 
-            <button type="submit" className="button" onClick={handleChange}>
-              قدم الطلب
-            </button>
-          </Form>
-        )}
-      </Formik>
+        <button onClick={handleSubmit} type="submit" className="button">
+          قدم الطلب
+        </button>
+      </form>
     </div>
   );
 };
 
 export default FormCard;
-// import "./FormCard.css";
-// import { Formik, Field, Form, ErrorMessage } from "formik";
-// import * as Yup from "yup";
-// import dayjs from "dayjs";
-// import axios from "axios";
-
-
-// const validationSchema = Yup.object({
-//   name: Yup.string()
-//     .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-//     .required("الاسم مطلوب"),
-//   father_name: Yup.string()
-//     .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-//     .required("الاسم مطلوب"),
-//   age: Yup.date()
-//     .min(dayjs("1980-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
-//     .max(dayjs("2006-01-01").toDate(), "المواليد يجب ان يكون بين 1980 و 2006")
-//     .required("Birth date is required"),
-//   phone_number: Yup.string()
-//     .matches(
-//       /^07[0-9]{9}$/,
-//       "يجب أن يكون رقم الهاتف يبدأ بـ 07 ويحتوي على 9 أرقام"
-//     )
-//     .required("رقم الهاتف مطلوب"),
-//   cv: Yup.mixed()
-//     .test(
-//       "fileType",
-//       "السيرة الذاتية يجب انو تكون بصيغة بي دي اف ",
-//       (value) => value && value.type === "application/pdf"
-//     )
-//     .required("السيرة الذاتية مطلوبة"),
-//   الايميل: Yup.string().email().required("الايميل مطلوب"),
-//   taskid:Yup.string().required('الاختيار مطلوب')
-
-// });
-
-// const initialValues = {
-//   name: "",
-//   father_name: "",
-//   age: dayjs().format("YYYY-MM-DD"),
-//   phone_number: "",
-//   email: "",
-//   cv: null,
-//   taskid:""
-// };
-// const onSubmit = (values, { resetForm }) => {
-//   const data = {
-//     name: values.name,
-//     father_name: values.father_name,
-//     age: values.age,
-//     phone_number: values.phone_number,
-//     email: values.email,
-//     cv: values.cv,
-//     taskid: values.taskid,
-//   };
-
-//   axios
-//     .post('http://localhost:3001/api/StudentReg/students', data)
-//     .then(response => {
-//       console.log(response.data);
-//       resetForm();
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-// };
-
-// const FormCard = () => {
-
-//   return (
-//     <div className="allform">
-
-//       <Formik
-//         initialValues={initialValues}
-//         validationSchema={validationSchema}
-//         onSubmit={onSubmit}
-//       >
-//         <Form>
-//           <div className="form-row">
-//             <div className="problem">
-//               <label htmlFor="name" className="label">
-//                 *الاسم
-//               </label>
-
-//               <Field
-//                 type="text"
-//                 name="name"
-//                 className="form-control"
-//                 required
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="name"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//             <div className="problem">
-//               <label htmlFor="father_name" className="label">
-//                 *اسم الاب
-//               </label>
-//               <Field
-//                 type="text"
-//                 name="father_name"
-//                 className="form-control"
-//                 required
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="father_name"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="form-row">
-//             <div className="problem">
-//               <label htmlFor="age" className="label">
-//                 *تاريخ الولادة
-//               </label>
-//               <Field
-//                 type="date"
-//                 id="age"
-//                 name="age"
-//                 className="form-control"
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="age"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//             <div className="problem">
-//               <label htmlFor="emial" className="label">
-//                 *الايميل الشخصي
-//               </label>
-//               <Field
-//                 type="text"
-//                 name="email"
-//                 className="form-control"
-//                 required
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="email"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="form-row">
-//             <div className="problem">
-//               <label htmlFor="phone_number" className="label">
-//                 *رقم الهاتف
-//               </label>
-//               <Field
-//                 type="text"
-//                 name="phone_number"
-//                 className="form-control"
-//                 required
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="phone_number"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//             <div className="problem">
-//               <label htmlFor="cv" className="label">
-//                 *السيرة الذاتية
-//               </label>
-//               <Field
-//                 type="file"
-//                 name="cv"
-//                 className="cv"
-//                 required
-//               />
-//               <div className="errorMessage">
-//                 <ErrorMessage
-//                   name="cv"
-//                   component="div"
-//                   className="error-message"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="form-row">
-//           <div className="problem">
-//               <label htmlFor="taskid" className="label"style={{ fontSize: 20 }}>الحالة المطلوبة</label>
-//               <Field
-//                as='select'
-//                 name="taskid"
-//                 className="form-control"
-//                 required>
-//                   <option value="">اختر </option>
-//     <option value=" 1">حشوة اسنان</option>
-//     <option value=" 2">قلع</option>
-//     <option value=" 3">تنظيف</option>
-
-//                 </Field>
-             
-              
-//               <ErrorMessage name="taskid" component="div" className="error-message" style={{ fontSize: 20 }} />
-//             </div>
-
-//           </div>
-//         </Form>
-//       </Formik>
-//       <button type="submit" className="button" onClick={onSubmit}>
-//         قدم الطلب
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default FormCard;
