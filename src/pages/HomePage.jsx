@@ -8,7 +8,6 @@ import './HomePage1.css';
 import './BookingSection';
 import StoryPage from './story';
 import BookingSection from './BookingSection';
-import FinalComponent from '../components/form/components/final_component/final_component';
 
 class HomePage extends Component {
   scrollToBookingSection = () => {
@@ -24,27 +23,31 @@ class HomePage extends Component {
         <div className="maincomponent">
           <header>
             {[false].map((expand) => (
-              <Navbar key={expand} expand={expand}>
-                <Container fluid>
-                  <div>
-                    <Navbar.Toggle className="border border-0" />
-                    <Navbar.Text href="#" className="t1">
-                      بيشنت هاب
-                    </Navbar.Text>
-                  </div>
-                  <Navbar.Offcanvas placement="end">
-                    <Offcanvas.Header closeButton>
-                      <Offcanvas.Title> بيشنت هاب </Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                      <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link href="#action1">خدماتنا</Nav.Link>
-                        <Nav.Link href="#action2">للإنضمام الينا</Nav.Link>
-                      </Nav>
-                    </Offcanvas.Body>
-                  </Navbar.Offcanvas>
-                </Container>
-              </Navbar>
+              <div>
+   <nav class="navbar navbar-expand-lg bg-body-light">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-large" href="#">PatientHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link nav-link-small active" aria-current="page" href="#"></a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link nav-link-small" href="#">خدماتنا</a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link nav-link-small" href="#">أحجز الآن</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+              </div>
             ))}
           </header>
           <div>
@@ -69,12 +72,7 @@ class HomePage extends Component {
         <div ref={(ref) => (this.bookingSectionRef = ref)}>
           <BookingSection />
         </div>
-        <div>
-          <FinalComponent/>
-        </div>
       </div>
-
-      
     );
   }
 }

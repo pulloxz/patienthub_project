@@ -64,7 +64,11 @@ function BookingSection() {
           تقليص
         </button>
       )}
-    </div>
+      
+                            
+
+  </div>
+    
   );
 }
 

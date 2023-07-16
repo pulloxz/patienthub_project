@@ -1,37 +1,80 @@
-
-.about {
-  display: flex;
-  justify-content: space-between;
-}
-
-.about h1 {
-  position: relative;
-  background-color: black;
-  color: aliceblue;
-  width: 650px;
-  height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  margin: 0px;
+.icon p { 
+  color: black; 
+} 
  
-  order: 2;
+.icon i.fas.fa-star { 
+  color:#a08870; 
+} 
+ 
+ 
+ 
+.icon { 
+ 
+display:grid; 
+padding: 2px; 
+margin: 10px; 
+padding-right: 70px; 
+text-align: right; 
+size:1000px; 
+ 
+/* padding-top: 0px; */ 
+ 
+} 
+.rr1{
+line-height: 2;
+margin-right: 25px;
 }
+  .par { 
+font-family: 'Cairo', sans-serif; 
+line-height: 2; 
+font-size: 22px; 
+padding: 7px; 
+margin: 10px; 
+padding-right: 70px; 
+text-align: right; 
+padding-top: 0px; 
+background-color:  #6fdab111; 
+border-radius: 50px; 
 
-.about p {
-  line-height: 2;
-  font-size: 20px;
-  padding: 20px;
- margin: 40px;
-  direction: rtl;
-  text-align: right;
-  order: 1; 
+ 
+ 
+ 
+} 
+ 
+ 
+ 
+nav ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+} 
+ 
+nav ul li { 
+  display: inline-block; 
+  margin-right: 10px; 
+} 
+ 
+nav ul li a { 
+  color: #333; 
+  text-decoration: none; 
+  padding: 5px; 
+} 
+ 
+.par2 { 
+line-height: 2; 
+font-size: 22px; 
+padding: 7px; 
+margin: 10px; 
+padding-right: 70px; 
+text-align: right; 
+padding-top: 0px; 
+border-radius: 50px; 
+background-color: #6fdab111;; 
+} 
+ 
+.icon .par2 img { 
+  margin-right: 10px; 
 }
-.all{
-  margin-bottom: 60px;
-}
-
 /* .about h1 {
   text-align: center;
   background-color: black;
