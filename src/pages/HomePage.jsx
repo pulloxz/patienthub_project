@@ -8,9 +8,7 @@ import "./HomePage1.css";
 import "./BookingSection";
 import StoryPage from "./story";
 import BookingSection from "./BookingSection";
-import { useRef, useEffect } from "react";
 import FinalComponent from "../components/form/components/final_component/final_component";
-import { BottomNavigation } from "@mui/material";
 
 class HomePage extends Component {
   scrollToBookingSection = () => {
@@ -39,59 +37,31 @@ class HomePage extends Component {
           <header>
             {[false].map((expand) => (
               <div>
-                <nav class="navbar navbar-expand-lg bg-body-light">
-                  <div class="container-fluid">
-                    <a class="navbar-brand navbar-brand-large" href="#">
-                      PatientHub
-                    </a>
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#navbarNav"
-                      aria-controls="navbarNav"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
-                    >
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div
-                      class="collapse navbar-collapse justify-content-end"
-                      id="navbarNav"
-                    >
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a
-                            class="nav-link nav-link-small active"
-                            aria-current="page"
-                            href="#"
-                          ></a>
-                        </li>
-                        <li class="nav-item ml-3">
-                          <a
-                            class="nav-link nav-link-small"
-                            type="button"
-                            onClick={this.scrollToaboutusSection}
-                          >
-                            خدماتنا
-                          </a>
-                        </li>
-                        <li class="nav-item ml-3">
-                          <a
-                            class="nav-link nav-link-small"
-                            type="button"
-                            onClick={this.scrollToJoinSection}
-                          >
-                            أنضم ألينا
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+               <Navbar key={expand} expand={expand}>
+                <Container fluid>
+                  <div>
+                    <Navbar.Toggle className="border border-0" />
+                    <Navbar.Text href="#" className="t1">
+                      بيشنت هاب
+                    </Navbar.Text>
                   </div>
-                </nav>
+                  <Navbar.Offcanvas placement="end">
+                    <Offcanvas.Header closeButton>
+                      <Offcanvas.Title> بيشنت هاب </Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                      <Nav className="justify-content-end flex-grow-1 pe-3">
+                        <Nav.Link href="#action1">خدماتنا</Nav.Link>
+                        <Nav.Link href="#action2">للإنضمام الينا</Nav.Link>
+                      </Nav>
+                    </Offcanvas.Body>
+                  </Navbar.Offcanvas>
+                </Container>
+              </Navbar>
+
               </div>
             ))}
-          </header>
+          </header>      
           <div>
             <section class="">
               <h1 className="t2">!لتحصل على أفضل أهتمام لصحة فمك</h1>
