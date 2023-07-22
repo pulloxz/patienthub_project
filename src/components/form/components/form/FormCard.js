@@ -1,6 +1,29 @@
 import { useState } from "react";
 import dayjs from "dayjs";
 import axios from "axios";
+import "./FormCard.css";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
+    .required("الاسم مطلوب"),
+  father_name: Yup.string()
+    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
+    .required("الاسم مطلوب"),
+  age: Yup.number()
+    .positive("العمر يجب أن يكون رقمًا موجبًا")
+    .integer("العمر يجب أن يكون رقمًا صحيحًا")
+    .min(2, "العمر يجب أن يحتوي على رقمين على الأقل")
+    .required("العمر مطلوب"),
+  العنوان: Yup.string().required("العنوان مطلوب"),
+  phone_number: Yup.string()
+    .matches(
+      /^07[0-9]{9}$/,
+      "يجب أن يكون رقم الهاتف مبدوء بـ 07 ويحتوي على 11 رقم"
+    )
+    .required("رقم الهاتف مطلوب"),
+});
 
 const FormCard = () => {
   const [values, setValues] = useState({

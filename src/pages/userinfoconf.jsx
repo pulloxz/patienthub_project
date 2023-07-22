@@ -3,6 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import axios from "axios";
+import "./userinfoconf.css";
 
 const UserInfoConfirmation = () => {
   const location = useLocation();

@@ -8,7 +8,9 @@ display: flex;
   
     
  }
+
  .form-control {
+    position: relative;
      font-size: 20 !important;
      border: none !important;
      border-radius: 0 !important;
@@ -16,7 +18,7 @@ display: flex;
      background-color: #DDDBE5 !important;
      color: #4E4766 !important;
      width: 100%;
-     height:3vh;
+     height:5vh;
      display: flex;
  }
 
@@ -37,7 +39,7 @@ display: flex;
      top: -20px !important;
      width: 250px !important;
      height: 50px !important ;
-     background: #4E4766 !important;
+     background: #516669 !important;
      border: 0.2rem solid #615e5e13 !important;
      border-radius: 5px !important;
      color: #e0d9f1 !important;
@@ -80,14 +82,31 @@ display: flex;
     border-bottom: 1px solid #4E4766 !important;
     background-color: #DDDBE5 !important;
     color: #4E4766 !important;
-    width: 100%;
-    height: 3vh;
+    width: 250px;
+    height: 5vh;
+    position: relative;
+    right: 50px;
     align-items: self-end;
-    
- }
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -ms-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+}
  .allform{
     display: block;
  }
  .errorMessage{
     height: 40px;
+ }
+ .form-matrix {
+    font-size: 15px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #4E4766 !important;
+        background-color: #DDDBE5 !important;
+        color: #4E4766 !important;
+        width: 100%;
+        height: 3vh;
+        display: flex;
+     
  }

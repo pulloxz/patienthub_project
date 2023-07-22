@@ -18,15 +18,15 @@ builder.Services.AddDbContext<AppDatabaseContaxt>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-builder.Services.AddCors(opsions =>
+
+builder.Services.AddCors(options =>
 {
-    opsions.AddPolicy(name: MyAllowspecificOrigin,
-                        policy =>
-                        {
-                            policy.AllowAnyOrigin()
-                            .AllowAnyHeader()
-                            .AllowAnyMethod();
-                        });
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
 });
 
 var app = builder.Build();

@@ -1,7 +1,7 @@
 .black-card {
     
     position: absolute;
-    background-color: black;
+    background-color:#516669 ;
     color: white;
     width: 30%;
     height: 80vh;
@@ -19,7 +19,7 @@
 
 
 .text {
-    font-size: 5vw;  
+    font-size: 4.5vw;  
 }
 .line{
     width: 80%;

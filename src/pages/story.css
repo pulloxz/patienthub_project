@@ -2,8 +2,9 @@
   color: black; 
 } 
  
-.icon i.fas.fa-star { 
-  color:#a08870; 
+.icon img { 
+  color:#a08870;
+  width: 20px;
 } 
  
  
@@ -33,7 +34,7 @@ margin: 10px;
 padding-right: 70px; 
 text-align: right; 
 padding-top: 0px; 
-background-color:  #6fdab111; 
+background-color:  #46886f11; 
 border-radius: 50px; 
 
  
@@ -69,7 +70,7 @@ padding-right: 70px;
 text-align: right; 
 padding-top: 0px; 
 border-radius: 50px; 
-background-color: #6fdab111;; 
+background-color: #46886f11; 
 } 
  
 .icon .par2 img { 
