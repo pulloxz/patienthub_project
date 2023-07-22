@@ -1,5 +1,5 @@
 .final_header {
-    background-color: #C9C6D5;
+    background-color: #eee;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,3 +13,4 @@
     text-align: center;
     justify-content: space-between;
 }
+

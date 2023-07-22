@@ -13,10 +13,10 @@ function BookingSection() {
   ];
 
   const additionalBookings = [
-    'حجز 5',
-    'حجز 6',
-    'حجز 7',
-    'حجز 8'
+     'حشوة',
+     'قلع سن',
+    '  تقويم أسنان',
+    
   ];
   const navigate = useNavigate();
 
@@ -66,7 +66,7 @@ function BookingSection() {
       )}
       
                             
-
+<br></br>
   </div>
     
   );

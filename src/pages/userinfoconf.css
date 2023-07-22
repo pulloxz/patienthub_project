@@ -11,9 +11,9 @@
     height: 40px;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid #4E4766;
+    border-bottom: 1px solid #516669;
     background-color: #DDDBE5;
-    color: #4E4766;
+    color: #516669;
   }
   
   .error-message {
@@ -28,7 +28,7 @@
     top: 550px; 
     width: 250px;
     height: 55px;
-    background: #4E4766;
+    background: #516669;
     border: 0.2rem solid #615e5e13;
     border-radius: 5px;
     color: #e0d9f1;
