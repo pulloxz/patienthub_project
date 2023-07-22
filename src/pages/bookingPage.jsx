@@ -103,7 +103,7 @@ return (
                 top: '85px',
                 display: 'flex',
                 alignItems: 'center',
-                color: '#4E4766',
+                color: '#516669',
                 stroke: '0.5px',
                 fontSize: '20px',
               }}
@@ -118,7 +118,7 @@ return (
               position: 'absolute',
               top: '85px',
               right: '40px',
-              color: '#4E4766',
+              color: '#516669',
               fontSize: '32px',
             }}
           >
@@ -133,7 +133,7 @@ return (
             position: 'absolute',
             top: '320px',
             right: '40px',
-            color: '#4E4766',
+            color: '#516669',
             fontSize: '25px',
             stroke: '1.0px',
           }}
@@ -146,7 +146,7 @@ return (
             position: 'absolute',
             top: '350px',
             right: '40px',
-            color: '#4E4766',
+            color: '#516669',
             fontSize: '18px',
           }}
         >
@@ -159,7 +159,7 @@ return (
             top: '380px',
             right: '40px',
             width: '600px',
-            borderTop: '1px solid #4E4766',
+            borderTop: '1px solid #516669',
           }}
         />
         <div
@@ -168,7 +168,7 @@ return (
             position: 'absolute',
             top: '340px',
             right: '860px',
-            color: '#4E4766',
+            color: '#516669',
             fontSize: '25px',
             stroke: '1.0px',
           }}
@@ -182,7 +182,7 @@ return (
             top: '380px',
             right: '860px',
             width: '300px',
-            borderTop: '1px solid #4E4766',
+            borderTop: '1px solid #516669',
           }}
         />
         
@@ -193,7 +193,7 @@ return (
       position: 'absolute',
       top: '410px',
       left: '380px',
-      color: '#4E4766',
+      color: '#516669',
       fontSize: '18px',
     }}
   >
@@ -207,7 +207,7 @@ return (
   top: '430px',
   left: '390px',
   marginTop: '10px',
-  color: '#4E4766',
+  color: '#516669',
   fontSize: '18px', }}>
     <label className="booking-label">
      وقت الحجز:-
@@ -240,7 +240,7 @@ return (
             width: '200px',
             height: '100px',
             background: 'white',
-            color: '#4E4766',
+            color: '#516669',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',

@@ -85,7 +85,7 @@ const UserInfoConfirmation = () => {
                 top: "85px",
                 display: "flex",
                 alignItems: "center",
-                color: "#4E4766",
+                color: "#516669",
                 fontSize: "20px",
               }}
             >
@@ -106,7 +106,7 @@ const UserInfoConfirmation = () => {
               top: "85px",
               left: "50%",
               transform: "translateX(-50%)",
-              color: "#4E4766",
+              color: "#516669",
               fontSize: "32px",
             }}
           >
@@ -118,7 +118,7 @@ const UserInfoConfirmation = () => {
               position: "absolute",
               top: "85px",
               right: "40px",
-              color: "#4E4766",
+              color: "#516669",
               fontSize: "32px",
             }}
           >
@@ -132,7 +132,7 @@ const UserInfoConfirmation = () => {
           position: "absolute",
           top: "200px",
           right: "40px",
-          color: "#4E4766",
+          color: "#516669",
           fontSize: "25px",
           padding: "5px",
         }}
@@ -145,7 +145,7 @@ const UserInfoConfirmation = () => {
           position: "absolute",
           top: "240px",
           right: "40px",
-          color: "#4E4766",
+          color: "#516669",
           fontSize: "20px",
         }}
       >
@@ -157,7 +157,7 @@ const UserInfoConfirmation = () => {
           position: "absolute",
           top: "270px",
           right: "40px",
-          color: "#4E4766",
+          color: "#516669",
           fontSize: "20px",
         }}
       >
