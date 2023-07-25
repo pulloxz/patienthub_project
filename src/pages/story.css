@@ -1,80 +1,72 @@
-.icon p { 
-  color: black; 
-} 
- 
-.icon img { 
-  color:#a08870;
-  width: 20px;
-} 
- 
- 
- 
-.icon { 
- 
-display:grid; 
-padding: 2px; 
-margin: 10px; 
-padding-right: 70px; 
-text-align: right; 
-size:1000px; 
- 
-/* padding-top: 0px; */ 
- 
-} 
-.rr1{
-line-height: 2;
-margin-right: 25px;
+.icon p {
+  color: #321801;
 }
-  .par { 
-font-family: 'Cairo', sans-serif; 
-line-height: 2; 
-font-size: 22px; 
-padding: 7px; 
-margin: 10px; 
-padding-right: 70px; 
-text-align: right; 
-padding-top: 0px; 
-background-color:  #46886f11; 
-border-radius: 50px; 
 
- 
- 
- 
-} 
- 
- 
- 
-nav ul { 
-  list-style: none; 
-  margin: 0; 
-  padding: 0; 
-} 
- 
-nav ul li { 
-  display: inline-block; 
-  margin-right: 10px; 
-} 
- 
-nav ul li a { 
-  color: #333; 
-  text-decoration: none; 
-  padding: 5px; 
-} 
- 
-.par2 { 
-line-height: 2; 
-font-size: 22px; 
-padding: 7px; 
-margin: 10px; 
-padding-right: 70px; 
-text-align: right; 
-padding-top: 0px; 
-border-radius: 50px; 
-background-color: #46886f11; 
-} 
- 
-.icon .par2 img { 
-  margin-right: 10px; 
+.icon img {
+  color: #a08870;
+  width: 20px;
+  margin: 10px;
+}
+
+.icon {
+  display: grid;
+  padding: 2px;
+  margin: 10px;
+  padding-right: 70px;
+  text-align: right;
+  size: 1000px;
+
+  /* padding-top: 0px; */
+}
+.rr1 {
+  line-height: 2;
+  margin-right: 25px;
+  color: #321801;
+}
+.par {
+  font-family: "Cairo", sans-serif;
+  line-height: 2;
+  font-size: 22px;
+  padding: 7px;
+  margin: 10px;
+  padding-right: 70px;
+  text-align: right;
+  padding-top: 0px;
+  background-color: #bfb3a437;
+  border-radius: 50px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.par2 {
+  line-height: 2;
+  font-size: 22px;
+  padding: 7px;
+  margin: 10px;
+  padding-right: 70px;
+  text-align: right;
+  padding-top: 0px;
+  border-radius: 50px;
+  background-color: #bfb3a437;
+}
+
+.icon .par2 img {
+  margin-right: 10px;
 }
 /* .about h1 {
   text-align: center;
@@ -96,8 +88,8 @@ background-color: #46886f11;
 }
 
    */
-  
-  /* .about h1 {
+
+/* .about h1 {
     text-align: center;
     background-color: black;
     position: absolute;

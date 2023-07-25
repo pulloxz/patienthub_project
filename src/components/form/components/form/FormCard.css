@@ -1,112 +1,96 @@
-
-.problem{
-display: flex;
-    flex-direction: column;
-    width:25%;
-    margin: 2%;
-    align-self: self-end;
-  
-    
- }
-
- .form-control {
-    position: relative;
-     font-size: 20 !important;
-     border: none !important;
-     border-radius: 0 !important;
-     border-bottom: 1px solid #516669 !important;
-     background-color: #DDDBE5 !important;
-     color: #516669 !important;
-     width: 100%;
-     height:5vh;
-     display: flex;
- }
-
- .error-message {
-    height: 40px;
-     color: red !important;
-    
-    
-   
-   
-   
- }
-
- .button {
-     margin-top: 10px !important;
-     position: relative !important;
-     left: -200px !important;
-     top: -20px !important;
-     width: 250px !important;
-     height: 50px !important ;
-     background: #516669 !important;
-     border: 0.2rem solid #615e5e13 !important;
-     border-radius: 5px !important;
-     color: #e0d9f1 !important;
-     font-size: 20px !important;
-    
- }
-
- .button:hover {
-
-     background-color: #282c34 !important;
-     color: #b7bac2 !important;
-
- }
-
-
- .form-row {
-     display: flex;
-     flex-direction: row-reverse;
-     flex-wrap: wrap;
-     margin-bottom: 10px;
- }
- .form-group {
-     width: 50%;
-     margin-bottom: 10px;
- }
- .label {
-     color: #636363;
-     font-size: 20px;
-     align-self: self-end;
- }
-
- .success-message {
-     color: green !important;
-     font-weight: 500 !important;
- }
- .cv {
-    font-size: 20px !important;
-    border: none !important;
-    border-radius: 0 !important;
-    border-bottom: 1px solid #516669 !important;
-    background-color: #DDDBE5 !important;
-    color: #516669 !important;
-    width: 250px;
-    height: 5vh;
-    position: relative;
-    right: 50px;
-    align-items: self-end;
-    -webkit-border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    -ms-border-radius: 0 !important;
-    -o-border-radius: 0 !important;
+.problem {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 2%;
+  align-self: self-end;
 }
- .allform{
-    display: block;
- }
- .errorMessage{
-    height: 40px;
- }
- .form-matrix {
-    font-size: 15px !important;
-        border: none !important;
-        border-radius: 0 !important;
-        border-bottom: 1px solid #516669 !important;
-        background-color: #DDDBE5 !important;
-        color: #516669 !important;
-        width: 100%;
-        height: 3vh;
-        display: flex;
-     
- }
+
+.form-control {
+  position: relative;
+  font-size: 20 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #735634 !important;
+  background-color: #dddbe5 !important;
+  color: #735634 !important;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+}
+
+.error-message {
+  height: 40px;
+  color: red !important;
+}
+
+.button {
+  margin-top: 10px !important;
+  position: relative !important;
+  left: -200px !important;
+  top: -20px !important;
+  width: 250px !important;
+  height: 50px !important ;
+  background: #735634 !important;
+  border: 0.2rem solid #735634 !important;
+  border-radius: 5px !important;
+  color: #e0d9f1 !important;
+  font-size: 20px !important;
+}
+
+.button:hover {
+  background-color: #40290c !important;
+  color: #b7bac2 !important;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.form-group {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.label {
+  color: #636363;
+  font-size: 20px;
+  align-self: self-end;
+}
+
+.success-message {
+  color: green !important;
+  font-weight: 500 !important;
+}
+.cv {
+  font-size: 20px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #735634 !important;
+  background-color: #dddbe5 !important;
+  color: #735634 !important;
+  width: 100%;
+  align-items: self-end;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+.allform {
+  display: block;
+}
+.errorMessage {
+  height: 40px;
+}
+.form-matrix {
+  font-size: 15px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #735634 !important;
+  background-color: #dddbe5 !important;
+  color: #735634 !important;
+  width: 100%;
+  height: 3vh;
+  display: flex;
+}

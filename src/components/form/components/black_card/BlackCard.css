@@ -1,33 +1,29 @@
 .black-card {
-    
-    position: absolute;
-    background-color:#516669 ;
-    color: white;
-    width: 30%;
-    height: 80vh;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    padding: 20px;
-    text-align: center;
-    align-self: flex-end;
-    flex-direction: column;
-    bottom: 0%;
- 
+  position: absolute;
+  background-color: #735634;
+  color: white;
+  width: 30%;
+  height: 80vh;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  padding: 20px;
+  text-align: center;
+  align-self: flex-end;
+  flex-direction: column;
+  bottom: 0%;
 }
-
-
 
 .text {
-    font-size: 4.5vw;  
+  font-size: 4.5vw;
 }
-.line{
-    width: 80%;
-        height: 1px;
-        background-color: white;
-        margin: 20px auto;
+.line {
+  width: 80%;
+  height: 1px;
+  background-color: white;
+  margin: 20px auto;
 }
-.aditiional_text{
-    margin-top: 10px;
-        font-size: 2.5vw;
+.aditiional_text {
+  margin-top: 10px;
+  font-size: 2.5vw;
 }

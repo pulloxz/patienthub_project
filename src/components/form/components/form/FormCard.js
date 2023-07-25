@@ -2,28 +2,6 @@ import { useState } from "react";
 import dayjs from "dayjs";
 import axios from "axios";
 import "./FormCard.css";
-import * as Yup from "yup";
-
-const validationSchema = Yup.object({
-  name: Yup.string()
-    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-    .required("الاسم مطلوب"),
-  father_name: Yup.string()
-    .min(2, "الاسم يجب ان يتكون من حرفين على الاقل")
-    .required("الاسم مطلوب"),
-  age: Yup.number()
-    .positive("العمر يجب أن يكون رقمًا موجبًا")
-    .integer("العمر يجب أن يكون رقمًا صحيحًا")
-    .min(2, "العمر يجب أن يحتوي على رقمين على الأقل")
-    .required("العمر مطلوب"),
-  العنوان: Yup.string().required("العنوان مطلوب"),
-  phone_number: Yup.string()
-    .matches(
-      /^07[0-9]{9}$/,
-      "يجب أن يكون رقم الهاتف مبدوء بـ 07 ويحتوي على 11 رقم"
-    )
-    .required("رقم الهاتف مطلوب"),
-});
 
 const FormCard = () => {
   const [values, setValues] = useState({
@@ -36,6 +14,8 @@ const FormCard = () => {
     taskid: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prevValues) => ({
@@ -43,32 +23,85 @@ const FormCard = () => {
       [name]: value,
     }));
   };
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setValues((prevValues) => ({
       ...prevValues,
       cv: file,
-    })); 
+    }));
   };
-  const formData = new FormData();
-    formData.append("FirstName", values.name);
-    formData.append("LastName", values.father_name);
-    formData.append("Email", values.email);
-    formData.append("BirthDate", values.age);
-    formData.append("PhoneNumber", values.phone_number);
-    formData.append("Task", values.taskid);
-    formData.append("cvFile", values.cv);
-  console.log(formData);
+
+  const validateForm = () => {
+    const errors = {};
+
+    // Validation rules
+    if (!values.name || values.name.length < 2) {
+      errors.name = "الاسم يجب أن يتكون من حرفين على الأقل";
+    }
+
+    if (!values.father_name || values.father_name.length < 2) {
+      errors.father_name = "اسم الاب يجب أن يتكون من حرفين على الأقل";
+    }
+
+    if (!values.age || parseInt(values.age) < 2) {
+      errors.age = "العمر يجب أن يحتوي على رقمين على الأقل";
+    }
+
+    if (!values.phone_number || !/^07[0-9]{9}$/.test(values.phone_number)) {
+      errors.phone_number =
+        "يجب أن يكون رقم الهاتف مبدوء بـ 07 ويحتوي على 11 رقم";
+    }
+
+    if (!values.email) {
+      errors.email = "الايميل الشخصي مطلوب";
+    }
+
+    if (!values.cv) {
+      errors.cv = "السيرة الذاتية مطلوبة";
+    }
+
+    if (!values.taskid) {
+      errors.taskid = "الحالة المطلوبة مطلوبة";
+    }
+
+    return errors;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("https://localhost:3001/api/StudentReg/students", formData)
-      .then((res) => {
-        console.log(res?.data);
-        // Reset form values
-       
-      })
-     
+    const errors = validateForm();
+    setErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      const formData = new FormData();
+      formData.append("FirstName", values.name);
+      formData.append("LastName", values.father_name);
+      formData.append("Email", values.email);
+      formData.append("BirthDate", values.age);
+      formData.append("PhoneNumber", values.phone_number);
+      formData.append("Task", values.taskid);
+      formData.append("cvFile", values.cv);
+
+      axios
+        .post("https://localhost:3001/api/StudentReg/students", formData)
+        .then((res) => {
+          console.log(res?.data);
+          // Reset form values
+          setValues({
+            name: "",
+            father_name: "",
+            age: dayjs().format("YYYY-MM-DD"),
+            phone_number: "",
+            email: "",
+            cv: null,
+            taskid: "",
+          });
+          setErrors({});
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
 
   return (
@@ -88,6 +121,9 @@ const FormCard = () => {
               className="form-control"
               required
             />
+            {errors.name && (
+              <div className="error-message">{errors.name}</div>
+            )}
           </div>
           <div className="problem">
             <label htmlFor="father_name" className="label">
@@ -102,6 +138,9 @@ const FormCard = () => {
               className="form-control"
               required
             />
+            {errors.father_name && (
+              <div className="error-message">{errors.father_name}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
@@ -118,6 +157,9 @@ const FormCard = () => {
               className="form-control"
               required
             />
+            {errors.age && (
+              <div className="error-message">{errors.age}</div>
+            )}
           </div>
           <div className="problem">
             <label htmlFor="email" className="label">
@@ -132,6 +174,9 @@ const FormCard = () => {
               className="form-control"
               required
             />
+            {errors.email && (
+              <div className="error-message">{errors.email}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
@@ -148,6 +193,9 @@ const FormCard = () => {
               className="form-control"
               required
             />
+            {errors.phone_number && (
+              <div className="error-message">{errors.phone_number}</div>
+            )}
           </div>
           <div className="problem">
             <label htmlFor="cv" className="label">
@@ -161,6 +209,9 @@ const FormCard = () => {
               className="cv"
               required
             />
+            {errors.cv && (
+              <div className="error-message">{errors.cv}</div>
+            )}
           </div>
         </div>
         <div className="form-row">
@@ -181,10 +232,12 @@ const FormCard = () => {
               <option value="2">قلع</option>
               <option value="3">تنظيف</option>
             </select>
+            {errors.taskid && (
+              <div className="error-message">{errors.taskid}</div>
+            )}
           </div>
         </div>
-
-        <button onClick={handleSubmit} type="submit" className="button">
+        <button type="submit" className="button">
           قدم الطلب
         </button>
       </form>

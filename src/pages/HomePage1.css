@@ -1,44 +1,46 @@
-
 .t1 {
-  font-size: 30px;
-  color:black;
+  font-size: 35px;
+  color: #321801;
   margin-left: 40px;
+  font-weight: bold;
 }
 .t2 {
-  color: #1b1b1b;
+  color: #321801;
   margin-top: 230px;
   text-align: right;
   font-size: 40px;
-  margin-right: 25px;
-  
+  margin-right: 40px;
+  line-height: 55px;
+  font-weight: 550;
 }
 .t3 {
-  color: #1b1b1b;
+  color: #321801;
   font-size: 25px;
   margin-top: 10px;
   text-align: right;
-  margin-right: 40px;
+  margin-right: 55px;
+  font-weight: 550;
 }
 .t4 {
   position: relative;
   top: 80px;
-  width: 200px;
-  height: 55px;
-  left: 800px;
-  
-  background: #516669;
+  width: 220px;
+  height: 60px;
+  left: 900px;
+
+  background: #735634;
   border: 0.2rem solid #615e5e13;
   border-radius: 5px;
   color: #d5d5d6;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 .t4:hover {
-  background-color: #282c34;
+  background-color: #40290C;
   color: #b7bac2;
 }
 .maincomponent {
-  background-image: url('../image/yu_x2.jpg');
+  background-image: url("../image/yu2.jpg");
   min-width: 100%;
   min-height: 100vh;
   background-size: cover;
@@ -50,7 +52,7 @@
 }
 .navbar-brand-large {
   font-size: 35px;
-  font-weight:inherit ;
+  font-weight: inherit;
 }
 
 .navbar-nav {
@@ -60,23 +62,61 @@
 
 .nav-link-left {
   margin-left: 30px;
-  
 }
 
 .nav-link-small {
   font-size: 30px;
-  
 }
 
-
-.hidden{
+.hidden {
   transition: all 1s;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -ms-transition: all 1s;
   -o-transition: all 1s;
 }
-.show{
+.show {
   opacity: 1;
-
 }
+/* Navbar styles */
+.navbar-custom {
+  padding: 10px;
+}
+
+/* Navbar links styles */
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-item a {
+  color: #321801;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* Navbar links hover styles */
+.nav-item a:hover {
+  color: #321801;
+}
+
+/* Offcanvas styles */
+.offcanvas-header {
+  border-bottom: none;
+  padding: 20px;
+}
+
+.offcanvas-body {
+  padding: 0;
+}
+
+/* Offcanvas links styles */
+.offcanvas-body .nav-item {
+  padding: 10px;
+}
+
+.offcanvas-body .nav-item a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Offcanvas links hover styles */

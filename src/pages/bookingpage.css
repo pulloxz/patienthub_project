@@ -1,7 +1,6 @@
-
 .custom-calendar {
   background: transparent;
-  color: #516669;
+  color: #735634;
   font-size: 20px;
 }
 
@@ -12,7 +11,7 @@
 .custom-input {
   background: transparent;
   border: none;
-  color: #516669;
+  color: #735634;
   font-size: 20px;
 }
 .calendar-container {
@@ -34,12 +33,12 @@
 
 .day-name {
   font-size: 20px;
-  color: #516669;
+  color: #161411;
 }
 
 .day-number {
   font-size: 20px;
-  color: #516669;
+  color: #735634;
 }
 .available-times {
   margin-top: 10px;
@@ -48,7 +47,7 @@
 .booking-label {
   display: block;
   font-size: 18px;
-  color: #516669;
+  color: #735634;
   margin-bottom: 5px;
 }
 
@@ -60,7 +59,7 @@
   position: absolute;
   width: 140px;
   height: 40px;
-  background-color: #516669;
+  background-color: #735634;
   color: white;
   font-size: 20px;
   display: flex;
@@ -71,8 +70,8 @@
 
 .time-slot.selected {
   background-color: #ffffff;
-  color: #516669;
-  border: 2px solid #516669;
+  color: #735634;
+  border: 2px solid #735634;
 }
 .booking-details {
   display: flex;
@@ -82,7 +81,7 @@
 
 .selected-time {
   font-size: 20px;
-  color: #516669;
+  color: #271c11;
 }
 
 .available-times {
@@ -99,7 +98,7 @@
   left: 120px;
   width: 250px;
   height: 55px;
-  background: #516669;
+  background: #735634;
   border: 0.2rem solid #615e5e13;
   border-radius: 5px;
   color: #e0d9f1;
@@ -107,12 +106,12 @@
 }
 
 .t4:hover {
-  background-color: #282c34;
+  background-color: #40290c;
   color: #b7bac2;
 }
 
 .booking-confirmation {
- position: relative;
-top: 400px;
-right: 1100px;
+  position: relative;
+  top: 400px;
+  right: 1100px;
 }
