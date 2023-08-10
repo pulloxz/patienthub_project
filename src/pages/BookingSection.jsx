@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 
 function BookingSection() {
   const initialBookings = [
-    'تنظيف الاسنان',
-    'تبييض الاسنان',
+    'تنظيف اسنان',
+    'تبييض اسنان',
     'فحص الاطفال',
     'فحص البالغين'
   ];
 
   const additionalBookings = [
-     'حشوة',
-     'قلع سن',
-    '  تقويم أسنان',
+     'حشوة اسنان',
+     'قلع اسنان',
+    'تقويم اسنان',
     
   ];
   const navigate = useNavigate();

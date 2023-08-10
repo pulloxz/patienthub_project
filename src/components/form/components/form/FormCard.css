@@ -94,3 +94,23 @@
   height: 3vh;
   display: flex;
 }
+.success-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Start with 0 opacity to hide the notification initially */
+  pointer-events: none; /* Make the notification non-clickable */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+/* Show the notification when 'showNotification' is true */
+.success-notification.show {
+  opacity: 1;
+  pointer-events: auto; /* Allow interactions with the notification */
+}

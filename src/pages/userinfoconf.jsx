@@ -35,12 +35,20 @@ const UserInfoConfirmation = () => {
   };
 
   let task = "";
-  if (selectedService === "تنظيف الاسنان") {
+  if (selectedService === "حشوة اسنان") {
     task = "1";
-  } else if (selectedService === "تبييض اسنان") {
-    task = "2";
   } else if (selectedService === "قلع اسنان") {
+    task = "2";
+  } else if (selectedService === "تبييض اسنان") {
     task = "3";
+  } else if (selectedService === "فحص الاطفال") {
+    task = "4";
+  } else if (selectedService === "فحص البالغين") {
+    task = "5";
+  } else if (selectedService === "تقويم اسنان") {
+    task = "6";
+  } else if (selectedService === "تنظيف اسنان") {
+    task = "7";
   }
 
   const validateForm = () => {
@@ -202,7 +210,7 @@ const UserInfoConfirmation = () => {
       <h2 style={{ fontSize: 20 }}>الرجاء اعطاء المعلومات التالية</h2>
       <div className="userinfo-confirmation">
         {bookingSuccess ? (
-          <section className = "done">
+          <section className = "success-message">
           <div >
             تم الحجز بنجاح
             <br />

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Nav, Navbar} from "react-bootstrap";
 import "./story.css";
 import "./HomePage1.css";
 import StoryPage from "./story";
@@ -69,15 +69,11 @@ const HomePage = () => {
             <h5 className="t3">سبب أخر لإبتسامك</h5>
           </section>
           <div
-            className="container mt-3"
-            style={{
-              position: "relative",
-              left: "-500px",
-            }}
+            className="containerr"
           >
             <button
               type="button"
-              className="t4"
+              className="b4"
               onClick={() => scrollToSection(bookingSectionRef)}
             >
               أحجز الآن

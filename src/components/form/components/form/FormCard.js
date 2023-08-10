@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import axios from "axios";
 import "./FormCard.css";
@@ -15,6 +15,19 @@ const FormCard = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  useEffect(() => {
+    if (showNotification) {
+      // Automatically hide the notification after 3 seconds
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showNotification]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +44,6 @@ const FormCard = () => {
       cv: file,
     }));
   };
-
   const validateForm = () => {
     const errors = {};
 
@@ -83,30 +95,30 @@ const FormCard = () => {
       formData.append("cvFile", values.cv);
 
       axios
-        .post("https://localhost:3001/api/StudentReg/students", formData)
-        .then((res) => {
-          console.log(res?.data);
-          // Reset form values
-          setValues({
-            name: "",
-            father_name: "",
-            age: dayjs().format("YYYY-MM-DD"),
-            phone_number: "",
-            email: "",
-            cv: null,
-            taskid: "",
-          });
-          setErrors({});
-        })
-        .catch((error) => {
-          console.error(error);
+      .post("https://localhost:3001/api/StudentReg/students", formData)
+      .then((res) => {
+        console.log(res?.data);
+        setSubmitted(true);
+        setValues({
+          name: "",
+          father_name: "",
+          age: dayjs().format("YYYY-MM-DD"),
+          phone_number: "",
+          email: "",
+          cv: null,
+          taskid: "",
         });
-    }
-  };
-
+        setErrors({});
+        setShowNotification(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+};
   return (
     <div className="allform">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="theform">
         <div className="form-row">
           <div className="problem">
             <label htmlFor="name" className="label">
@@ -229,14 +241,21 @@ const FormCard = () => {
             >
               <option value="">اختر</option>
               <option value="1">حشوة اسنان</option>
-              <option value="2">قلع</option>
-              <option value="3">تنظيف</option>
+              <option value="2"> قلع اسنان</option>
+              <option value="3">تبييض الاسنان</option>
+              <option value="4">فحص الاطفال</option>
+              <option value="5">فحص البالغين</option>
+              <option value="6">تقويم اسنان</option>
+              <option value="7">تنظيف اسنان</option>
             </select>
             {errors.taskid && (
               <div className="error-message">{errors.taskid}</div>
             )}
           </div>
         </div>
+        {submitted && showNotification && (
+          <div className="success-notification show">تم إرسال طلبك بنجاح!</div>
+        )}
         <button type="submit" className="button">
           قدم الطلب
         </button>

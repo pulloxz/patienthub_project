@@ -1,17 +1,19 @@
 .black-card {
-  position: absolute;
   background-color: #735634;
   color: white;
-  width: 30%;
+  width: 30vw;
   height: 80vh;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
   padding: 20px;
   text-align: center;
-  align-self: flex-end;
   flex-direction: column;
-  bottom: 0%;
+ 
+}
+
+@media (max-width: 768px) {
+  .black-card {
+    width: 60%; /* Adjust the width as needed for smaller screens */
+    height: 50vh;
+  }
 }
 
 .text {

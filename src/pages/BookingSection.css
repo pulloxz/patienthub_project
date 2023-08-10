@@ -22,15 +22,16 @@
   margin-right: 10px;
   font-size: 25px;
   height: 60px;
-  width: 210px;
+  width: 11rem;
   border-radius: 3px;
 }
-.booking-text {
+.booking-item .booking-text {
   font-family: "Cairo", sans-serif;
   flex-grow: 1;
   text-align: right;
   font-size: 30px;
   color: #40290c;
+  width: 100%;
 }
 .container {
   display: flex;
@@ -40,15 +41,17 @@
 
 .booking-item {
   display: flex;
-  justify-content: space-between;
+  flex-direction:row;
   align-items: center;
   margin: 20px 0;
   padding: 10px;
-  height: 60px;
+  /* height: 60px; */
+  width: 100%;
 }
-.button-container {
-  text-align: center;
-  margin-right: 650px;
+.booking-item .button-container {
+  text-align: left;
+  margin: 10px 0;
+
 }
 .load-more-button {
   background: none;
@@ -61,4 +64,8 @@
 .book-now-button:hover {
   background-color: #40290c;
   color: #b7bac2;
+}
+
+.bookings-container{
+  width: 100%;
 }

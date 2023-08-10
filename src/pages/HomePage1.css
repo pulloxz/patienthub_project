@@ -21,21 +21,28 @@
   margin-right: 55px;
   font-weight: 550;
 }
-.t4 {
-  position: relative;
-  top: 80px;
+.b4 {
   width: 220px;
   height: 60px;
-  left: 900px;
-
   background: #735634;
   border: 0.2rem solid #615e5e13;
   border-radius: 5px;
   color: #d5d5d6;
   font-size: 2rem;
+  margin-right: 100px;
+}
+.t4 {
+  width: 220px;
+  height: 60px;
+  background: #735634;
+  border: 0.2rem solid #615e5e13;
+  border-radius: 5px;
+  color: #d5d5d6;
+  font-size: 2rem;
+  margin-right: 100px;
 }
 
-.t4:hover {
+.b4:hover {
   background-color: #40290C;
   color: #b7bac2;
 }
@@ -50,40 +57,40 @@
   display: flex;
   flex-direction: column;
 }
-.navbar-brand-large {
-  font-size: 35px;
-  font-weight: inherit;
+/* Common styles */
+a {
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
 }
 
-.navbar-nav {
-  flex-direction: row;
-  justify-content: center;
+a::before {
+  background: #735634;
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
 }
 
-.nav-link-left {
-  margin-left: 30px;
+a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.nav-link-small {
-  font-size: 30px;
-}
-
-.hidden {
-  transition: all 1s;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-}
-.show {
-  opacity: 1;
-}
 /* Navbar styles */
 .navbar-custom {
   padding: 10px;
 }
 
 /* Navbar links styles */
+.navbar-nav {
+  flex-direction: row;
+  justify-content: center;
+}
+
 .nav-item {
   margin-bottom: 10px;
 }
@@ -91,7 +98,6 @@
 .nav-item a {
   color: #321801;
   padding: 10px;
-  text-decoration: none;
 }
 
 /* Navbar links hover styles */
@@ -120,3 +126,37 @@
 }
 
 /* Offcanvas links hover styles */
+.nav-link-left {
+  margin-left: 30px;
+}
+
+.nav-link-small {
+  font-size: 30px;
+}
+
+/* Navbar brand styles */
+.navbar-brand-large {
+  font-size: 35px;
+  font-weight: inherit;
+}
+.containerr{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 20vh; /* Set the height of the container to fill the viewport */
+  padding: 0 20px;
+}
+.b4 {
+  width: 220px;
+  height: 60px;
+  background: #735634;
+  border: 0.2rem solid #615e5e13;
+  border-radius: 5px;
+  color: #d5d5d6;
+  font-size: 2rem;
+  margin-right: 100px;
+}
+.t4:hover {
+  background-color: #40290C;
+  color: #b7bac2;
+}
