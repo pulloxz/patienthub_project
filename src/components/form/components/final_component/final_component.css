@@ -21,7 +21,8 @@
   @media (max-width: 450px) {
     .white-card {
         width: auto;
-        height: 95vh;;
+        height: 95vh;
+        margin-left: 10px;
     }
     .theform{
         display: flex;

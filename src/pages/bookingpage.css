@@ -1,3 +1,91 @@
+.navbar-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 40px;
+  
+}
+.back-button{
+  background:none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: "#40290c";
+  stroke: "0.5px";
+  font-size: "20px";
+  margin-left: 20vh;
+  
+}
+.navbar-right{
+  margin-right: 20vh;
+  color: #40290c;
+  font-size: 32px;
+  
+}
+.thebody{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10%;
+  margin-top: 20vh;
+
+}
+.thepody1item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 4%;
+  color: #40290c;
+  font-Size: 25px;
+  stroke: 1.0px;
+
+
+}
+.thebody2item{
+  color: #40290c;
+  font-Size: 25px;
+  stroke: 1.0px;
+}
+.divider{
+  
+  border-Top: 1px solid #40290c;
+}
+.calendar-container {
+
+  width: 250px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: white;
+  color: #40290c;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.date{
+  width: 650px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+.available-times{
+  width: 300px;
+}
+.time-slots{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content:space-evenly;
+  width: 300px;
+}
+.selected-date{
+  color:#40290c;
+  font-size: 18px;
+}
+.booking-field{
+  color:#40290c;
+  font-size: 18px;
+
+}
 .custom-calendar {
   background: transparent;
   color: #735634;
@@ -14,15 +102,7 @@
   color: #735634;
   font-size: 20px;
 }
-.calendar-container {
-  position: absolute;
-  top: 260px;
-  right: 85px;
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+
 
 .day {
   display: flex;
@@ -40,23 +120,14 @@
   font-size: 20px;
   color: #735634;
 }
-.available-times {
-  margin-top: 10px;
-}
 
-.booking-label {
-  display: block;
-  font-size: 18px;
-  color: #735634;
-  margin-bottom: 5px;
-}
 
-.time-slots {
-  position: relative;
-}
+
+
+
 
 .time-slot {
-  position: absolute;
+  margin: 5px;
   width: 140px;
   height: 40px;
   background-color: #735634;
@@ -66,13 +137,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
+} 
 
 .time-slot.selected {
   background-color: #ffffff;
   color: #735634;
   border: 2px solid #735634;
-}
+} */
 .booking-details {
   display: flex;
   justify-content: space-between;
@@ -92,17 +163,17 @@
   margin-bottom: 5px;
   font-size: 20px;
 }
-.t4 {
-  position: absolute;
-  top: 700px;
-  left: 120px;
-  width: 250px;
-  height: 55px;
-  background: #735634;
-  border: 0.2rem solid #615e5e13;
-  border-radius: 5px;
-  color: #e0d9f1;
-  font-size: 1.7rem;
+.booking-confirmation .t4 {
+
+  width: 200px;
+    height: 60px;
+    background: #735634;
+    border: 0.2rem solid #615e5e13;
+    border-radius: 5px;
+    color: #d5d5d6;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-right: 0;
 }
 
 .t4:hover {
@@ -111,7 +182,93 @@
 }
 
 .booking-confirmation {
-  position: relative;
-  top: 400px;
-  right: 1100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+@media (max-width: 860px) {
+  .thebody {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+  }
+
+  .thepody1item,
+  .thebody2item {
+    font-size: 20px;
+    margin-right: 0;
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .calendar-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .date {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .available-times {
+    width: 100%;
+  }
+
+  .time-slots {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .selected-time,
+  .booking-label {
+    font-size: 18px;
+  }
+
+  .booking-confirmation .t4 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 650px) {
+    .thebody {
+      margin-top: 5vh;
+    }
+
+    .thepody1item,
+    .thebody2item {
+      font-size: 18px;
+      width: 80%;
+    }
+    .date{
+      width: 80%;
+    }
+    .button{
+      width: 80%;
+
+    }
+
+    .divider {
+      margin: 15px 0;
+    }
+
+    .calendar-container {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .selected-date,
+    .booking-field,
+    .booking-label {
+      font-size: 16px;
+    }
+
+    .booking-confirmation .t4 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+  }
 }

@@ -120,3 +120,12 @@ nav ul li a {
     margin-top: 0px;
   }
    */
+@media (max-width: 450px){
+  .icon{
+    padding: 0;
+  }
+  .par,
+  .par2{
+    padding: 10px;
+  }
+}

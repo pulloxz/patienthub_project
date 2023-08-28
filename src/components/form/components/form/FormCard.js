@@ -15,7 +15,7 @@ const FormCard = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
@@ -81,6 +81,7 @@ const FormCard = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("hello");
     const errors = validateForm();
     setErrors(errors);
 
@@ -95,167 +96,171 @@ const FormCard = () => {
       formData.append("cvFile", values.cv);
 
       axios
-      .post("https://localhost:3001/api/StudentReg/students", formData)
-      .then((res) => {
-        console.log(res?.data);
-        setSubmitted(true);
-        setValues({
-          name: "",
-          father_name: "",
-          age: dayjs().format("YYYY-MM-DD"),
-          phone_number: "",
-          email: "",
-          cv: null,
-          taskid: "",
+        .post("https://localhost:3001/api/StudentReg/students", formData)
+        .then((res) => {
+          console.log(res?.data);
+          setSubmitted(true);
+          setValues({
+            name: "",
+            father_name: "",
+            age: dayjs().format("YYYY-MM-DD"),
+            phone_number: "",
+            email: "",
+            cv: null,
+            taskid: "",
+          });
+          setErrors({});
+          setShowNotification(true);
+        })
+        .catch((error) => {
+          console.error(error);
         });
-        setErrors({});
-        setShowNotification(true);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-};
+    }
+  };
   return (
     <div className="allform">
       <form onSubmit={handleSubmit} className="theform">
         <div className="form-row">
-          <div className="problem">
-            <label htmlFor="name" className="label">
-              *الاسم
-            </label>
+          <div className="txt_field">
             <input
               type="text"
               id="name"
               name="name"
               value={values.name}
               onChange={handleChange}
-              className="form-control"
               required
             />
-            {errors.name && (
-              <div className="error-message">{errors.name}</div>
-            )}
+            <span></span>
+            <label>*الاسم</label>
           </div>
-          <div className="problem">
-            <label htmlFor="father_name" className="label">
-              *اسم الاب
-            </label>
+          {errors.name && <div className="error-message">{errors.name}</div>}
+        </div>
+        <div className="form-row">
+          <div className="txt_field">
             <input
               type="text"
               id="father_name"
               name="father_name"
               value={values.father_name}
               onChange={handleChange}
-              className="form-control"
               required
             />
-            {errors.father_name && (
-              <div className="error-message">{errors.father_name}</div>
-            )}
+            <span></span>
+            <label>*اسم الاب</label>
           </div>
+          {errors.father_name && (
+            <div className="error-message">{errors.father_name}</div>
+          )}
         </div>
         <div className="form-row">
-          <div className="problem">
-            <label htmlFor="age" className="label">
-              *تاريخ الولادة
-            </label>
+          <div className="txt_field">
             <input
               type="date"
               id="age"
               name="age"
               value={values.age}
               onChange={handleChange}
-              className="form-control"
               required
             />
-            {errors.age && (
-              <div className="error-message">{errors.age}</div>
-            )}
+            <span></span>
+            <label>*تاريخ الولادة</label>
           </div>
-          <div className="problem">
-            <label htmlFor="email" className="label">
-              *الايميل الشخصي
-            </label>
+          {errors.age && <div className="error-message">{errors.age}</div>}
+        </div>
+        <div className="form-row">
+          <div className="txt_field">
             <input
               type="text"
               id="email"
               name="email"
               value={values.email}
               onChange={handleChange}
-              className="form-control"
               required
             />
-            {errors.email && (
-              <div className="error-message">{errors.email}</div>
-            )}
+            <span></span>
+            <label>*الايميل الشخصي</label>
           </div>
+          {errors.email && <div className="error-message">{errors.email}</div>}
         </div>
         <div className="form-row">
-          <div className="problem">
-            <label htmlFor="phone_number" className="label">
-              *رقم الهاتف
-            </label>
+          <div className="txt_field">
             <input
               type="text"
               id="phone_number"
               name="phone_number"
               value={values.phone_number}
               onChange={handleChange}
-              className="form-control"
               required
             />
-            {errors.phone_number && (
-              <div className="error-message">{errors.phone_number}</div>
-            )}
+            <span></span>
+            <label>*رقم الهاتف</label>
           </div>
-          <div className="problem">
-            <label htmlFor="cv" className="label">
-              *السيرة الذاتية
-            </label>
+          {errors.phone_number && (
+            <div className="error-message">{errors.phone_number}</div>
+          )}
+        </div>
+        <div className="form-row">
+          <div className="txt_field">
             <input
               type="file"
               id="cv"
               name="cv"
               onChange={handleFileChange}
-              className="cv"
               required
             />
-            {errors.cv && (
-              <div className="error-message">{errors.cv}</div>
-            )}
+            <span></span>
+            <label>*السيرة الذاتية</label>
           </div>
+          {errors.cv && <div className="error-message">{errors.cv}</div>}
         </div>
+
         <div className="form-row">
-          <div className="problem">
-            <label htmlFor="taskid" className="label">
-              الحالة المطلوبة
-            </label>
-            <select
-              id="taskid"
+
+          <select  id="taskid"
               name="taskid"
               value={values.taskid}
               onChange={handleChange}
               className="form-control"
-              required
-            >
-              <option value="">اختر</option>
-              <option value="1">حشوة اسنان</option>
-              <option value="2"> قلع اسنان</option>
-              <option value="3">تبييض الاسنان</option>
-              <option value="4">فحص الاطفال</option>
-              <option value="5">فحص البالغين</option>
-              <option value="6">تقويم اسنان</option>
-              <option value="7">تنظيف اسنان</option>
-            </select>
-            {errors.taskid && (
-              <div className="error-message">{errors.taskid}</div>
+              required>
+            <option className="label" value="">
+              *الحالة المطلوبة
+            </option>
+            <option className="option" value="1">
+              حشوة اسنان
+            </option>
+            <option className="option" value="2">
+              قلع اسنان
+            </option>
+            <option className="option" value="3">
+              تبييض الاسنان
+            </option>
+            <option className="option" value="4">
+              فحص الاطفال
+            </option>
+            <option className="option" value="5">
+              فحص البالغين
+            </option>
+            <option className="option" value="6">
+              تقويم اسنان
+            </option>
+            <option className="option" value="7">
+              تنظيف اسنان
+            </option>
+          </select>
+          <span className="select-btn">
+            <i className="zmdi zmdi-chevron-down"></i>
+          </span>
+          <label>*الحالة المطلوبة</label>
+          {errors.taskid && (
+            <div className="error-message">{errors.taskid}</div>
             )}
-          </div>
+            
         </div>
+
         {submitted && showNotification && (
           <div className="success-notification show">تم إرسال طلبك بنجاح!</div>
         )}
+
         <button type="submit" className="button">
           قدم الطلب
         </button>

@@ -35,19 +35,19 @@ const UserInfoConfirmation = () => {
   };
 
   let task = "";
-  if (selectedService === "حشوة اسنان") {
+  if (selectedService === 'تنظيف اسنان') {
     task = "1";
-  } else if (selectedService === "قلع اسنان") {
+  } else if (selectedService === 'تبييض اسنان') {
     task = "2";
-  } else if (selectedService === "تبييض اسنان") {
+  } else if (selectedService === 'فحص الاطفال') {
     task = "3";
-  } else if (selectedService === "فحص الاطفال") {
+  } else if (selectedService === 'فحص البالغين'  ) {
     task = "4";
-  } else if (selectedService === "فحص البالغين") {
+  } else if (selectedService === 'حشوة اسنان') {
     task = "5";
-  } else if (selectedService === "تقويم اسنان") {
+  } else if (selectedService === 'قلع اسنان') {
     task = "6";
-  } else if (selectedService === "تنظيف اسنان") {
+  } else if (selectedService === 'تقويم اسنان'  ) {
     task = "7";
   }
 
@@ -124,9 +124,6 @@ const UserInfoConfirmation = () => {
               style={{
                 background: "transparent",
                 border: "none",
-                position: "absolute",
-                left: "95px",
-                top: "85px",
                 display: "flex",
                 alignItems: "center",
                 color: "#735634",
@@ -134,10 +131,10 @@ const UserInfoConfirmation = () => {
               }}
             >
               <IoIosArrowBack
-                style={{ width: "11px", height: "20px", marginRight: "5px" }}
+               
               />
               <span
-                style={{ fontSize: "24px", marginLeft: "5px", stroke: "0.5px" }}
+                
               >
                 رجوع
               </span>
@@ -145,26 +142,14 @@ const UserInfoConfirmation = () => {
           </div>
           <div
             className="navbar-title"
-            style={{
-              position: "absolute",
-              top: "85px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              color: "#735634",
-              fontSize: "32px",
-            }}
+            
           >
             تأكيد الحجز
           </div>
           <div
             className="navbar-right"
-            style={{
-              position: "absolute",
-              top: "85px",
-              right: "40px",
-              color: "#735634",
-              fontSize: "32px",
-            }}
+            style={{marginRight: "17.7vh"}}
+            
           >
             PatientHub
           </div>
@@ -173,9 +158,7 @@ const UserInfoConfirmation = () => {
       <div
         className="selected-service"
         style={{
-          position: "absolute",
-          top: "200px",
-          right: "40px",
+          
           color: "#735634",
           fontSize: "25px",
           padding: "5px",
@@ -186,7 +169,6 @@ const UserInfoConfirmation = () => {
       <div
         className="selected-time"
         style={{
-          position: "absolute",
           top: "240px",
           right: "40px",
           color: "#735634",
@@ -198,7 +180,6 @@ const UserInfoConfirmation = () => {
       <div
         className="selected-time"
         style={{
-          position: "absolute",
           top: "270px",
           right: "40px",
           color: "#735634",
@@ -207,7 +188,7 @@ const UserInfoConfirmation = () => {
       >
         وقت الحجز: {selectedTime}
       </div>
-      <h2 style={{ fontSize: 20 }}>الرجاء اعطاء المعلومات التالية</h2>
+      <h2 style={{ fontSize: 20 , color:"#735634" }}>الرجاء اعطاء المعلومات التالية</h2>
       <div className="userinfo-confirmation">
         {bookingSuccess ? (
           <section className = "success-message">
@@ -218,9 +199,9 @@ const UserInfoConfirmation = () => {
           </div>
           </section>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="ttheform">
             <div className="form-row">
-              <div className="form-group col-md-6">
+              <div className="txtfield">
             <label htmlFor="firstname" style={{ fontSize: 20 }}>
               الاسم
             </label>
@@ -237,7 +218,7 @@ const UserInfoConfirmation = () => {
               <div className="error-message">{errors.firstname}</div>
             )}
           </div>
-          <div className="form-group col-md-6">
+          <div className="txtfield">
             <label htmlFor="secondename" style={{ fontSize: 20 }}>
               اسم الاب
             </label>
@@ -253,47 +234,7 @@ const UserInfoConfirmation = () => {
               <div className="error-message">{errors.secondename}</div>
             )}
           </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="age" style={{ fontSize: 20 }}>
-              العمر
-            </label>
-            <input
-              type="number"
-              name="age"
-              value={values.age}
-              onChange={handleChange}
-              className="form-control"
-              required
-              pattern="[0-9]"
-            />
-            {errors.age && (
-              <div className="error-message">{errors.age}</div>
-            )}
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="Location" style={{ fontSize: 20 }}>
-              العنوان
-            </label>
-            <select
-              name="Location"
-              value={values.Location}
-              onChange={handleChange}
-              className="form-control"
-              required
-            >
-              <option value="">اختر العنوان</option>
-              <option value="الرصافة">الرصافة</option>
-              <option value="الكرخ">الكرخ</option>
-            </select>
-            {errors.Location && (
-              <div className="error-message">{errors.Location}</div>
-            )}
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
+          <div className="txtfield">
             <label htmlFor="phone_number" style={{ fontSize: 20 }}>
               رقم الهاتف
             </label>
@@ -311,11 +252,50 @@ const UserInfoConfirmation = () => {
             )}
           </div>
         </div>
-        <div>
+        <div className="form-row">
+          <div className="txtfield">
+            <label htmlFor="age" style={{ fontSize: 20 }}>
+              العمر
+            </label>
+            <input
+              type="number"
+              name="age"
+              value={values.age}
+              onChange={handleChange}
+              className="form-control"
+              required
+              pattern="[0-9]"
+            />
+            {errors.age && (
+              <div className="error-message">{errors.age}</div>
+            )}
+          </div>
+          <div className="txtfield">
+            <label style={{ fontSize: 20 }}>              اختر العنوان
+</label>
+
+            <select
+              name="Location"
+              value={values.Location}
+              onChange={handleChange}
+              className="form-control"
+              required
+            >
+              <option value="">العنوان</option>
+              <option value="الرصافة">الرصافة</option>
+              <option value="الكرخ">الكرخ</option>
+            </select>
+            {errors.Location && (
+              <div className="error-message">{errors.Location}</div>
+            )}
+          </div>
+          <div >
           <button type="submit" className="button" onClick={handleSubmit}>
             تأكيد
           </button>
           </div>
+        </div>
+        
       </form>
         )}
       </div>

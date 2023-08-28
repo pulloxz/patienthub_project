@@ -97,28 +97,11 @@ const BookingPage = () => {
               <button
                 className="back-button"
                 onClick={handleBackClick}
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  position: "absolute",
-                  left: "95px",
-                  top: "85px",
-                  display: "flex",
-                  alignItems: "center",
-                  color: "#40290c",
-                  stroke: "0.5px",
-                  fontSize: "20px",
-                }}
               >
                 <IoIosArrowBack
-                  style={{ width: "11px", height: "20px", marginRight: "5px" }}
-                />
+                  />
                 <span
-                  style={{
-                    fontSize: "24px",
-                    marginLeft: "5px",
-                    stroke: "0.5px",
-                  }}
+                
                 >
                   رجوع
                 </span>
@@ -126,89 +109,88 @@ const BookingPage = () => {
             </div>
             <div
               className="navbar-right"
-              style={{
-                position: "absolute",
-                top: "85px",
-                right: "40px",
-                color: "#40290c",
-                fontSize: "32px",
-              }}
+              
             >
               PatientHub
             </div>
           </div>
         </nav>
-        <div className="page">
-          <div
-            className="selected-service"
-            style={{
-              position: "absolute",
-              top: "320px",
-              right: "40px",
-              color: "#40290c",
-              fontSize: "25px",
-              stroke: "1.0px",
-              lineHeight: "4px",
-            }}
-          >
-            {selectedService}
-          </div>
+        <div className="thebody">
+          <div className="thepody1item">
           <div
             className="additional-text"
-            style={{
-              position: "absolute",
-              top: "350px",
-              right: "40px",
-              color: "#40290c",
-              fontSize: "18px",
-            }}
+            
           >
             قم بالتأكد من التواريخ المتاحة و احجز الموعد و الوقت الذي يناسبك
           </div>
-          <hr
-            className="divider"
-            style={{
-              position: "absolute",
-              top: "380px",
-              right: "40px",
-              width: "600px",
-              borderTop: "1px solid #40290c",
-            }}
-          />
+          <hr className="divider"
+             />
+                <div className="date">
+
+                  <div className="calendar-container">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        minDate={minSelectableDate}
+                        renderInput={(params) => <CustomInput {...params} />}
+                        />
+                    </LocalizationProvider>
+                    {!isDateAvailable &&
+                      selectedDate &&
+                      (dayjs(selectedDate).day() === 5 ||
+                      dayjs(selectedDate).day() === 6) && (
+                        <div
+                        className="error-message"
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          padding: "10px",
+                          fontSize: "20",
+                          color: "red",
+                        }}
+                        >
+                          هذا الموعد غير متاح قم بالتأكد من التواريخ المتاحة الاخرى
+                        </div>
+                      )}
+                  </div>
+                  <div className="available-times">
+                    <div className="time-slots">
+                      {availableTimes.map((time, index) => (
+                        <div
+                        key={time}
+                        className={`time-slot ${
+                          selectedTime === time ? "selected" : ""
+                        }`}
+                        style={{
+                          top: Math.floor(index / 2) * 50 + 420,
+                          left: (index % 2) * 150 + 800,
+                        }}
+                        onClick={() => handleTimeClick(time)}
+                        >
+                          {time}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+              </div>
+           </div>
+           <div className="thebody2item">
+
           <div
             className="selected-service"
-            style={{
-              position: "absolute",
-              top: "340px",
-              right: "860px",
-              color: "#40290c",
-              fontSize: "25px",
-              stroke: "1.0px",
-            }}
-          >
+            >
             تفاصيل الخدمة: {selectedService}
           </div>
           <hr
             className="divider"
-            style={{
-              position: "absolute",
-              top: "380px",
-              right: "860px",
-              width: "300px",
-              borderTop: "1px solid #40290c",
-            }}
-          />
-
+            
+            />
+            
           {isDateAvailable && selectedDate && (
             <div
-              className="selected-date"
-              style={{
-                position: "absolute",
-                top: "410px",
-                left: "380px",
-                color: "#40290c",
-                fontSize: "18px",
-              }}
+            className="selected-date"
+            
             >
               تاريخ الحجز:- {dayjs(selectedDate).format("YYYY-MM-DD")}
             </div>
@@ -216,14 +198,7 @@ const BookingPage = () => {
           {isDateAvailable && selectedDate && (
             <div
               className="booking-field"
-              style={{
-                position: "absolute",
-                top: "430px",
-                left: "390px",
-                marginTop: "10px",
-                color: "#40290c",
-                fontSize: "18px",
-              }}
+              
             >
               <label className="booking-label">
                 وقت الحجز:-
@@ -231,67 +206,6 @@ const BookingPage = () => {
               </label>
             </div>
           )}
-          <div className="available-times">
-            <div className="time-slots">
-              {availableTimes.map((time, index) => (
-                <div
-                  key={time}
-                  className={`time-slot ${
-                    selectedTime === time ? "selected" : ""
-                  }`}
-                  style={{
-                    top: Math.floor(index / 2) * 50 + 420,
-                    left: (index % 2) * 150 + 800,
-                  }}
-                  onClick={() => handleTimeClick(time)}
-                >
-                  {time}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div
-            className="calendar-container"
-            style={{
-              position: "absolute",
-              top: "400px",
-              right: "40px",
-              width: "200px",
-              height: "100px",
-              background: "white",
-              color: "#40290c",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          >
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                value={selectedDate}
-                onChange={handleDateChange}
-                minDate={minSelectableDate}
-                renderInput={(params) => <CustomInput {...params} />}
-              />
-            </LocalizationProvider>
-            {!isDateAvailable &&
-              selectedDate &&
-              (dayjs(selectedDate).day() === 5 ||
-                dayjs(selectedDate).day() === 6) && (
-                <div
-                  className="error-message"
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    padding: "10px",
-                    fontSize: "20",
-                    color: "red",
-                  }}
-                >
-                  هذا الموعد غير متاح قم بالتأكد من التواريخ المتاحة الاخرى
-                </div>
-              )}
-          </div>
           {isBookingAvailable && (
             <div className="booking-confirmation">
               <button
@@ -303,6 +217,9 @@ const BookingPage = () => {
               </button>
             </div>
           )}
+          </div>
+
+          
         </div>
       </div>
     </div>

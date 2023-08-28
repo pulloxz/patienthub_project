@@ -69,3 +69,15 @@
 .bookings-container{
   width: 100%;
 }
+@media (max-width: 450px) {
+  .title{
+    font-size: 80%;
+  }
+  .booking-text {
+    font-size: 65% !important; /* Adjust this value as needed */
+  }
+  .book-now-button{
+    width: 120% !important;
+    font-size: 65% !important;
+  }
+}

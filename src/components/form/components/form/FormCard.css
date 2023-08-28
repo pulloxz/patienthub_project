@@ -1,4 +1,56 @@
-.problem {
+/* 1 */
+.txt_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 10px 0;
+  flex: 0 0 calc(50% - 5px); /* Two columns with some spacing */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.txt_field input {
+  width: 200px;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.txt_field span::before {
+  content: '';
+  position: absolute;
+  top: 41px;
+  left: 0;
+  width: 0px;
+  height: 2px;
+  background: #735634;
+  transition: .5s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+  top: -5px;
+  color: #735634;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+
+
+
+.problem { 
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -6,17 +58,14 @@
   align-self: self-end;
 }
 
-.form-control {
-  position: relative;
-  font-size: 20 !important;
-  border: none !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid #735634 !important;
-  background-color: #dddbe5 !important;
-  color: #735634 !important;
-  width: 100%;
-  height: 5vh;
+.theform{
   display: flex;
+  height: 80vh;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  
 }
 
 .error-message {
@@ -26,9 +75,7 @@
 
 .button {
   margin-top: 10px !important;
-  position: relative !important;
-  left: -200px !important;
-  top: -20px !important;
+position: unset;
   width: 250px !important;
   height: 50px !important ;
   background: #735634 !important;
@@ -45,18 +92,32 @@
 
 .form-row {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 0;
+
 }
+.form-row .form-control{
+  background: none;
+  width: 200px;
+}
+.form-row select option {
+  text-align: right;
+}
+
+
 .form-group {
   width: 50%;
   margin-bottom: 10px;
 }
 .label {
-  color: #636363;
-  font-size: 20px;
-  align-self: self-end;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
 }
 
 .success-message {
@@ -78,7 +139,7 @@
   -o-border-radius: 0 !important;
 }
 .allform {
-  display: block;
+  height: inherit;
 }
 .errorMessage {
   height: 40px;
@@ -114,3 +175,4 @@
   opacity: 1;
   pointer-events: auto; /* Allow interactions with the notification */
 }
+

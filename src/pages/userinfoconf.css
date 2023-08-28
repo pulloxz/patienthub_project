@@ -1,3 +1,33 @@
+/* Navbar.css */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* You can adjust the background color as needed */
+  padding: 10px;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #735634;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.back-button span {
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.navbar-title,
+.navbar-right {
+  color: #735634;
+  font-size: 32px;
+}
+
 .userinfo-confirmation {
   max-width: 700px;
   margin: 0 auto;
@@ -60,4 +90,101 @@
   align-items: center;
 
 
+}
+
+
+.form-row button{
+  position:initial;
+  margin: 30px !important;
+  margin-top: 50px !important;
+}
+.ttheform{
+  display: flex;
+  height: 80vh;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+.txtfield{
+  position: relative;
+    border-bottom: 2px solid #adadad;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(50% - 5px);
+    box-sizing: border-box;
+  margin: 40px;
+}
+.txt_field input {
+  width: 200px;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.txt_field span::before {
+  content: '';
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 0px;
+  height: 2px;
+  background: #735634;
+  transition: .5s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+  top: -5px;
+  color: #735634;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+
+@media (max-width: 731px) {
+  .navbar-title,
+  .navbar-right {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+  .navbar-container{
+    justify-content: unset;
+    
+  }
+
+  .userinfo-confirmation {
+    top: 300px; /* Adjust top position for smaller screens */
+  }
+
+  .form-row > .form-group {
+    padding-right: 10px;
+    padding-left: 10px;
+    flex: 0 0 100%; /* Change to full width on smaller screens */
+  }
+
+  .button {
+    left: 10px; /* Adjust left position for smaller screens */
+    top: 450px; /* Adjust top position for smaller screens */
+  }
+  .selected-time{
+    position: initial;
+  }
+  .back-button{
+    margin: 0;
+  }
+  /* You can add more adjustments as needed */
 }

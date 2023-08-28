@@ -6,7 +6,13 @@
   padding: 20px;
   text-align: center;
   flex-direction: column;
- 
+  margin: 40px;
+  margin-right: 90px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 @media (max-width: 768px) {

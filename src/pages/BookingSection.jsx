@@ -15,7 +15,7 @@ function BookingSection() {
   const additionalBookings = [
      'حشوة اسنان',
      'قلع اسنان',
-    'تقويم اسنان',
+    'تقويم اسنان'
     
   ];
   const navigate = useNavigate();
